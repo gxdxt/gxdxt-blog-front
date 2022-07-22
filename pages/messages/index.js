@@ -9,7 +9,8 @@ export default function MesssagePage ({data}) {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefualt();
+        e.preventDefault();
+        console.log(e);
         fetch(`${API_HOST}/message?message=${message}`,{
             method: 'POST'
         }).then(res => res.json()).then(data => console.log(data))
@@ -24,10 +25,10 @@ export default function MesssagePage ({data}) {
                 )
             })}
             <form onSubmit={handleSubmit}>
-                <input type="text" value={message} onChange={handleMessageInput} />
+                <input type="text" value={message} onChange={handleMessageInput}/>
                 <input type="submit" />
             </form>
-        </div>
+        </div>          
     )
 }
 
