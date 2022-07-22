@@ -31,7 +31,7 @@ const PostAddPage = () => {
             })
         })
 
-        alert(result);
+        alert('This Post is published!');
         router.push('/posts');
     }
 
