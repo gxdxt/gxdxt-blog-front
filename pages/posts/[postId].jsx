@@ -1,6 +1,7 @@
 // detail page
 import { useRouter } from "next/router"
 import { API_HOST } from "../../common";
+import { marked } from "marked";
 
 const PostDetailPage = ({postData}) => {
     const {id, title, content} = postData;
@@ -9,7 +10,7 @@ const PostDetailPage = ({postData}) => {
     return (
         <article id = {id}> 
             <h1>{title}</h1>
-            <p>{content}</p>
+            <section dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
         </article>
     )
 }
