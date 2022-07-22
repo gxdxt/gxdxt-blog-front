@@ -1,25 +1,28 @@
 // detail page
 import { useRouter } from "next/router"
+import { API_HOST } from "../../common";
 
-const PostDetailPage = ({postId}) => {
-
-    console.log(postId);
+const PostDetailPage = ({postData}) => {
+    const {id, title, content} = postData;
+    console.log(postData);
 
     return (
-        <div>
-            <h1>Detail Page</h1>
-            <p>Bonjour !</p>
-        </div>
+        <article id = {id}> 
+            <h1>{title}</h1>
+            <p>{content}</p>
+        </article>
     )
 }
 
 // getSSR
 export const getServerSideProps = async (context) => {
-    const {postId} = context.query;
+    const {postId} = context.query; 
+    const response = await fetch(`${API_HOST}/posts?postId=${postId}`)
+    const postData = await response.json();
 
     return {
         props: {
-            postId
+            postData
         }
     }
 }
