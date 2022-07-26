@@ -16,6 +16,12 @@ a {
   box-sizing: border-box;
 }
 
+.postDiv {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .postUl {
   /* 가운데 정렬 */
   margin-left: auto;
@@ -35,11 +41,12 @@ a {
   color: grey;
 }
 
+
 .postBtn {
   /* 생략 */
-  padding:10px 20px 10px 20px;
+  padding: 5px 10px 5px 10px;
   margin:20px;
-  font-size: 2rem;
+  font-size: 15px;
   font-weight: 400;
 
   text-align: center;
@@ -138,11 +145,34 @@ a {
   cursor:pointer;
 }
 
+.publishBtn {
+    /* 생략 */
+    padding:10px 20px 10px 20px;
+    margin:20px;
+    font-size: 2rem;
+    font-weight: 400;
+  
+    text-align: center;
+    text-decoration: none;
+  
+    display: flex;
+    width: auto;
+  
+    border: none;
+    border-radius: 10px;
+  
+    display: inline-block;
+  
+    /*addition*/
+    margin-left: auto;
+    margin-right: 10px;
+    cursor:pointer;
+}
+
 .backDiv {
   float: left;
 }
 
-.postDiv {
+.publishBtn {
   float: right;
-  font-size: 30px;
 }

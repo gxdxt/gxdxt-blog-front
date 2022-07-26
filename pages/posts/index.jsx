@@ -6,10 +6,14 @@ const PostListPage = ({ postListData }) => {
     return  (
         <main>
             <div className='postTitle'>
-                <h1>gxdxt</h1>
-                <button className='postBtn' onClick = {() => {
+                <div className="mainTitleDiv">
+                    <h1>gxdxt</h1>
+                </div>
+                <div className='postDiv'>
+                    <button className='postBtn' onClick = {() => {
                     window.location.href = "/posts/add"
-                }}>post</button>
+                    }}>post</button>         
+                </div>
             </div>
             {
                 postListData.length === 0 

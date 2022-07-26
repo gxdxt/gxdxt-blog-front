@@ -56,8 +56,8 @@ const PostAddPage = () => {
                             window.location.href = "/posts"
                     }}>back</a>
                 </div>
-                <div className="postDiv">
-                    <button className="postBtn" type="submit">publish</button>
+                <div className="publishDiv">
+                    <button className="publishBtn" type="submit">publish</button>
                 </div>
             </div>
         </form>
