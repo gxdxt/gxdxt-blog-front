@@ -37,23 +37,22 @@ const PostAddPage = () => {
 
     return (
         <>
-         <button className="postBtn" onClick = {() => {
+        <button className="postBtn" onClick = {() => {
                     window.location.href = "/posts"
         }}>back</button>
         <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="title">Title</label>
-                <input type = "text" id = "title" value = {title} onChange={handleTitle}/>
+            <div className="postTitle">
+                <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
             </div>
-            <div>
-                <label htmlFor="content">Content</label>
-               
+            <div className="addContent">
+                <button className="postBtn">publish</button>
                 <Container>
-                    <textarea  id = "content" cols = "30" rows = "10" onChange={handleContent} defaultValue={content} />
+                    <textarea placeholder="Write a story" id = "content" cols = "10" rows = "10" onChange={handleContent} defaultValue={content} />
+                    <div />
                     <div dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
                 </Container>
             </div>
-            <button>publish</button>
+            
         </form>
         </>
     )
@@ -63,6 +62,7 @@ export default PostAddPage;
 
 const Container = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    margin: 10px;
+    grid-template-columns: 45% 10% 45%;
     height: 100vh
 `

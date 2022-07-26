@@ -5,8 +5,8 @@ import Link from "next/link"
 const PostListPage = ({ postListData }) => {
     return  (
         <main>
-            <h1 className='postTitle'>Gxdxtopia</h1>
-            <div>
+            <div className='postTitle'>
+                <h1>gxdxt</h1>
                 <button className='postBtn' onClick = {() => {
                     window.location.href = "/posts/add"
                 }}>post</button>

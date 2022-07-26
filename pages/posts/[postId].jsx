@@ -10,6 +10,9 @@ const PostDetailPage = ({postData}) => {
     return (
         <article id = {id}> 
             <h1 className = "postTitle">{title}</h1>
+            <button className='postBtn' onClick = {() => {
+                    window.location.href = "/posts/"
+                }}>back</button>
             <section className = "postSection" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
         </article>
     )

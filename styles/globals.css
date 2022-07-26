@@ -17,13 +17,20 @@ a {
 }
 
 .postUl {
+  /* 가운데 정렬 */
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+
   padding: 0;
   text-align: left;
+  width: auto;
+
 }
 
 .postLi {
   padding: 20px;
-  border-bottom: 1px solid grey;
+  
   list-style: none;
   color: grey;
 }
@@ -38,23 +45,49 @@ a {
   text-align: center;
   text-decoration: none;
 
-  display: inline-block;
+  display: flex;
   width: auto;
 
   border: none;
   border-radius: 4px;
+
+  /*addition*/
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: auto;
 }
 
 .postTitle {
   padding-left: 20px;
+  padding-bottom: 20px;
+
 }
 
 .postSection {
-
-  background-color: antiquewhite;
+  border-radius: 4px;
+  background-color: lightslategray;
   border-top: 1px solid grey;
   padding: 20px;
   margin: 20px;
+
+  width: max-content;
+
   font-size: 25px;
-  color: grey;
+  color: beige;
+}
+
+.addContent {
+  margin: 10px;
+}
+
+#title {
+  border: none;
+  background-color: gainsboro;
+  font-size: 50px;
+}
+
+#content {
+  border: none;
+  background-color: gainsboro;
+  font-size: 30px;
 }
