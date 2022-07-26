@@ -36,6 +36,10 @@ const PostAddPage = () => {
     }
 
     return (
+        <>
+         <button className="postBtn" onClick = {() => {
+                    window.location.href = "/posts"
+        }}>back</button>
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="title">Title</label>
@@ -43,6 +47,7 @@ const PostAddPage = () => {
             </div>
             <div>
                 <label htmlFor="content">Content</label>
+               
                 <Container>
                     <textarea  id = "content" cols = "30" rows = "10" onChange={handleContent} defaultValue={content} />
                     <div dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
@@ -50,6 +55,7 @@ const PostAddPage = () => {
             </div>
             <button>publish</button>
         </form>
+        </>
     )
 }
 
