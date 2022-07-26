@@ -37,22 +37,29 @@ const PostAddPage = () => {
 
     return (
         <>
-        <button className="postBtn" onClick = {() => {
-                    window.location.href = "/posts"
-        }}>back</button>
+        
         <form onSubmit={handleSubmit}>
             <div className="postTitle">
                 <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
             </div>
             <div className="addContent">
-                <button className="postBtn">publish</button>
+                
                 <Container>
                     <textarea placeholder="Write a story" id = "content" cols = "10" rows = "10" onChange={handleContent} defaultValue={content} />
                     <div />
                     <div dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
                 </Container>
             </div>
-            
+            <div className="addFooter">
+                <div className="backDiv">
+                    <a className="backAnchor" onClick = {() => {
+                            window.location.href = "/posts"
+                    }}>back</a>
+                </div>
+                <div className="postDiv">
+                    <button className="postBtn" type="submit">publish</button>
+                </div>
+            </div>
         </form>
         </>
     )

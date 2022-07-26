@@ -37,11 +37,11 @@ a {
 
 .postBtn {
   /* 생략 */
-  margin: 0;
-  padding: 0.25rem 0.5rem;
-
-  font-size: 1rem;
+  padding:10px 20px 10px 20px;
+  margin:20px;
+  font-size: 2rem;
   font-weight: 400;
+
   text-align: center;
   text-decoration: none;
 
@@ -49,12 +49,14 @@ a {
   width: auto;
 
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
+
+  display: inline-block;
 
   /*addition*/
-  margin-right: 10px;
-  margin-top: 10px;
   margin-left: auto;
+
+  cursor:pointer;
 }
 
 .postTitle {
@@ -89,5 +91,59 @@ a {
 #content {
   border: none;
   background-color: gainsboro;
+  font-size: 30px;
+}
+
+.addFooter {
+  position: fixed;
+  bottom: 0px;
+  height: 100px;
+  width: 100%;
+
+  background-color: whitesmoke;
+  opacity: 0.5;
+}
+
+.backBtn {
+    /* 생략 */
+    margin: 10px;
+    padding: 0.25rem 0.5rem;
+  
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+  
+    display: flex;
+    width: auto;
+  
+    border: none;
+    border-radius: 4px;
+  
+    /*addition*/
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+.backAnchor {
+  text-decoration: none;
+  font-size:2rem;
+  color: grey;
+  padding:10px 20px 10px 20px;
+  margin:20px;
+  display:inline-block;
+  border-radius: 10px;
+  transition:all 0.1s;
+  text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
+  cursor:pointer;
+}
+
+.backDiv {
+  float: left;
+}
+
+.postDiv {
+  float: right;
   font-size: 30px;
 }
