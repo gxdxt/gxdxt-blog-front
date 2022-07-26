@@ -9,8 +9,8 @@ const PostDetailPage = ({postData}) => {
 
     return (
         <article id = {id}> 
-            <h1>{title}</h1>
-            <section dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
+            <h1 className = "postTitle">{title}</h1>
+            <section className = "postSection" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
         </article>
     )
 }

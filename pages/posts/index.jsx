@@ -1,19 +1,26 @@
 import { API_HOST } from "../../common"
 import Link from "next/link"
 
+
 const PostListPage = ({ postListData }) => {
     return  (
         <main>
-            <h1>universe of gxdxt</h1>
+            <h1 className='postTitle'>Gxdxtopia</h1>
+            <div>
+                <button className='postBtn' onClick = {() => {
+                    window.location.href = "/posts/add"
+                }}>post</button>
+            </div>
             {
                 postListData.length === 0 
                 ?   (<div>data is empty</div>)
                 :   (
-                        <ul>
+                    <div>
+                        <ul className='postUl'>
                             {
                                 postListData.map(
                                     (postData) => (
-                                        <li key = {postData.id}>
+                                        <li key = {postData.id} className = 'postLi'>
                                             <Link href={`/posts/${postData.id}`} >
                                                 <a>
                                                     {postData.title}
@@ -24,6 +31,7 @@ const PostListPage = ({ postListData }) => {
                                 )
                             }
                         </ul>
+                    </div>
                     )
             }
         </main>
