@@ -5,23 +5,19 @@ import { marked } from "marked";
 
 const PostDetailPage = ({postData}) => {
     const {id, title, content} = postData;
-    console.log(postData);
+    const router = useRouter();
     const handleDelete = async e => {
-        e.preventDefault();
-        const result = await fetch(`${API_HOST}/posts`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title,
-                content,
-                createTime : new Date()
+        if (confirm('do you really want to delete this post?')) {
+            e.preventDefault();
+            const result = await fetch(`${API_HOST}/posts?postId=`+id, {
+                method: 'DELETE',
             })
-        })
-
-        alert('This Post is published!');
-        router.push('/posts');
+            alert('This Post is deleted!');
+            router.push('/posts');
+        } else {
+            alert('??');
+        }
+        
     }
 
     return (
@@ -37,9 +33,7 @@ const PostDetailPage = ({postData}) => {
                     }}>back</a>
                 </div>
                 <div>
-                    <a className="deleteAnchor" onClick = {() => {
-                        
-                    }}>delete</a>
+                    <a className="deleteAnchor" onClick = {handleDelete}>delete</a>
                 </div>
             </div>
         </article>
