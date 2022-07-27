@@ -32,7 +32,7 @@ const PostDetailPage = ({postData}) => {
                         window.location.href = "/posts"
                     }}>back</a>
                 </div>
-                <div>
+                <div className="deleteDiv">
                     <a className="deleteAnchor" onClick = {handleDelete}>delete</a>
                 </div>
             </div>
