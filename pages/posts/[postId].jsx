@@ -6,6 +6,23 @@ import { marked } from "marked";
 const PostDetailPage = ({postData}) => {
     const {id, title, content} = postData;
     console.log(postData);
+    const handleDelete = async e => {
+        e.preventDefault();
+        const result = await fetch(`${API_HOST}/posts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title,
+                content,
+                createTime : new Date()
+            })
+        })
+
+        alert('This Post is published!');
+        router.push('/posts');
+    }
 
     return (
         <article id = {id}> 
@@ -16,8 +33,13 @@ const PostDetailPage = ({postData}) => {
             <div className="addFooter">
                 <div className="backDiv">
                     <a className="backAnchor" onClick = {() => {
-                            window.location.href = "/posts"
+                        window.location.href = "/posts"
                     }}>back</a>
+                </div>
+                <div>
+                    <a className="deleteAnchor" onClick = {() => {
+                        
+                    }}>delete</a>
                 </div>
             </div>
         </article>
