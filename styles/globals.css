@@ -41,6 +41,11 @@ a:hover {
   margin-right: auto;
 }
 
+.postTimeStamp {
+  font-size: 15px;
+  opacity: 0.5;
+}
+
 .postUl {
   /* 가운데 정렬 */
   margin-left: auto;

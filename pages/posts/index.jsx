@@ -30,7 +30,7 @@ const PostListPage = ({ postListData }) => {
                                                     {postData.title}
                                                 </a>
                                             </Link>
-                                            <div>
+                                            <div className="postTimeStamp">
                                                 {postData.createTime.slice(0,10)}
                                             </div>
                                         </li>
