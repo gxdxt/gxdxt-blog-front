@@ -30,6 +30,9 @@ const PostListPage = ({ postListData }) => {
                                                     {postData.title}
                                                 </a>
                                             </Link>
+                                            <div>
+                                                {postData.createTime.slice(0,10)}
+                                            </div>
                                         </li>
                                     )
                                 )
@@ -45,7 +48,11 @@ const PostListPage = ({ postListData }) => {
 export const getServerSideProps = async () => {
     const res = await fetch(`${API_HOST}/posts`);
     const postListData = await res.json();
-
+    postListData.sort( (a, b) => {
+        if (a.createTime < b.createTime) return 1;
+        if (a.createTime > b.createTime) return -1;
+    })
+    
     return {
         props: {
             postListData

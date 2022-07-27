@@ -4,7 +4,17 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: gainsboro;
+  background-color: #333B3E;
+  color: #B68FA2;
+}
+
+button {
+  background-color: transparent;
+}
+
+input,
+textarea {
+  background-color: transparent;
 }
 
 a {
@@ -36,9 +46,7 @@ a {
 
 .postLi {
   padding: 20px;
-  
   list-style: none;
-  color: grey;
 }
 
 
@@ -48,14 +56,14 @@ a {
   margin:20px;
   font-size: 15px;
   font-weight: 400;
-
+  color:#B68FA2;
   text-align: center;
   text-decoration: none;
 
   display: flex;
   width: auto;
 
-  border: none;
+  border-color: #B68FA2;
   border-radius: 10px;
 
   display: inline-block;
@@ -71,17 +79,21 @@ a {
 
 }
 
+.createTimeInput {
+  display: none;
+}
+
 .postSection {
   border-radius: 4px;
-  background-color: lightslategray;
-  border-top: 1px solid grey;
+  background-color: #3E555E;
   padding: 20px;
-  margin: 20px;
-
-  width: max-content;
-
+  margin: auto;
+  width: 80%;
+  height: 100vh;
   font-size: 25px;
-  color: beige;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.44);
+  border: 2px solid #B68FA2;
 }
 
 .addContent {
@@ -90,13 +102,11 @@ a {
 
 #title {
   border: none;
-  background-color: gainsboro;
   font-size: 50px;
 }
 
 #content {
   border: none;
-  background-color: gainsboro;
   font-size: 30px;
 }
 
@@ -106,7 +116,7 @@ a {
   height: 100px;
   width: 100%;
 
-  background-color: whitesmoke;
+  background-color: #586F77;
   opacity: 0.5;
 }
 
@@ -135,7 +145,7 @@ a {
 .backAnchor {
   text-decoration: none;
   font-size:2rem;
-  color: grey;
+  color: #B68FA2;
   padding:10px 20px 10px 20px;
   margin:20px;
   display:inline-block;
@@ -151,9 +161,10 @@ a {
     margin:20px;
     font-size: 2rem;
     font-weight: 400;
-  
+    color: #B68FA2;
     text-align: center;
     text-decoration: none;
+    text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
   
     display: flex;
     width: auto;

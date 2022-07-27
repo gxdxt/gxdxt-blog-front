@@ -19,7 +19,6 @@ const PostAddPage = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-
         const result = await fetch(`${API_HOST}/posts`, {
             method: 'POST',
             headers: {
@@ -27,13 +26,15 @@ const PostAddPage = () => {
             },
             body: JSON.stringify({
                 title,
-                content
+                content,
+                createTime : new Date()
             })
         })
 
         alert('This Post is published!');
         router.push('/posts');
     }
+    
 
     return (
         <>
