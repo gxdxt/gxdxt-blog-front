@@ -17,9 +17,9 @@ const PostListPage = ({ postListData }) => {
     return  (
         <main>
             <Header></Header>
-            <div className='postTitle'>
-                <div className='postDiv'>
-                    <button className='postBtn' onClick = {() => {
+            <div className='post-title'>
+                <div className='post-div'>
+                    <button className='post-btn' onClick = {() => {
                     window.location.href = "/posts/add"
                     }}>post</button>         
                 </div>
@@ -29,17 +29,17 @@ const PostListPage = ({ postListData }) => {
                 ?   (<div>data is empty</div>)
                 :   (
                     <div>
-                        <ul className='postUl'>
+                        <ul className='post-ul'>
                             {
                                 postListData.map(
                                     (postData) => (
-                                        <li key = {postData.id} className = 'postLi'>
+                                        <li key = {postData.id} className = 'post-li'>
                                             <Link href={`/posts/${postData.id}`} >
                                                 <a>
                                                     {postData.title}
                                                 </a>
                                             </Link>
-                                            <div className="postTimeStamp">
+                                            <div className="post-timestamp">
                                                 {postData.createTime.slice(0,10)}
                                             </div>
                                         </li>

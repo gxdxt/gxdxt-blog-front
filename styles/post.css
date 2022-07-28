@@ -1,0 +1,184 @@
+
+.post-div {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+.post-timestamp {
+    font-size: 15px;
+    opacity: 0.5;
+}
+
+.post-ul {
+    /* 가운데 정렬 */
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+
+    padding: 0;
+    text-align: left;
+    width: auto;
+
+}
+
+.post-li {
+    padding: 20px;
+    list-style: none;
+    font-size: 25px;
+}
+
+
+.post-btn {
+    /* 생략 */
+    padding: 5px 10px 5px 10px;
+    margin:20px;
+    font-size: 15px;
+    font-weight: 400;
+    color:#fafafa;
+    text-align: center;
+    text-decoration: none;
+
+    display: flex;
+    width: auto;
+
+    border-color: #fafafa;
+    border-radius: 10px;
+
+    display: inline-block;
+
+    /*addition*/
+    margin-left: auto;
+
+    cursor:pointer;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.post-btn:hover {
+    color: #f37021;
+    border-color: #f37021;
+    border-radius: 10px;
+
+    display: inline-block;
+    box-shadow: inset 1000px 0 0 0 transparent;
+}
+
+.post-title-div {
+    padding: 20px;
+    margin:auto;
+    align-items: center;
+}
+
+.post-title {
+    margin: auto;
+    text-align: center;
+    font-size: 50px;
+}
+
+.create-time-input {
+    display: none;
+}
+
+.post-section {
+    border-radius: 4px;
+    padding: 20px;
+    margin: auto;
+    width: 80%;
+    height: 100vh;
+    font-size: 25px;
+    text-align: left;
+    color: #fafafa;
+    border: 2px solid #f37021;
+}
+
+.post-back-div {
+    float: left;
+  }
+
+.post-back-anchor {
+    text-decoration: none;
+    font-size:2rem;
+    padding:10px 20px 10px 20px;
+    margin:20px;
+    display:inline-block;
+    border-radius: 10px;
+    transition:all 1s;
+    cursor:pointer;
+}
+
+.post-back-btn {
+    /* 생략 */
+    margin: 10px;
+    padding: 0.25rem 0.5rem;
+  
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+  
+    display: flex;
+    width: auto;
+  
+    border: none;
+    border-radius: 4px;
+  
+    /*addition*/
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+}
+
+.post-delete-div {
+    float: right;
+}
+
+.post-delete-anchor{
+    text-decoration: none;
+    font-size:2rem;
+    padding:10px 20px 10px 20px;
+    margin:20px;
+    display:inline-block;
+    border-radius: 10px;
+    transition:all 1s;
+    cursor:pointer;
+}
+
+.post-footer {
+    position: fixed;
+    bottom: 0px;
+    height: 100px;
+    width: 100%;
+  }
+
+.post-publish-div {
+    float: right;
+}
+
+.post-publish-btn {
+    /* 생략 */
+    padding:10px 20px 10px 20px;
+    margin:20px;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #f37021;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
+  
+    display: flex;
+    width: auto;
+  
+    border: none;
+    border-radius: 10px;
+  
+    display: inline-block;
+  
+    /*addition*/
+    margin-left: auto;
+    margin-right: 10px;
+    cursor:pointer;
+}
+
+.post-publish-title {
+    margin: 20px
+}

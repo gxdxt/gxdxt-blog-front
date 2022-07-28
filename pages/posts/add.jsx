@@ -40,7 +40,7 @@ const PostAddPage = () => {
         <>
         
         <form onSubmit={handleSubmit}>
-            <div className="postTitle">
+            <div className="post-publish-title">
                 <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
             </div>
             <div className="addContent">
@@ -51,14 +51,14 @@ const PostAddPage = () => {
                     <div dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
                 </Container>
             </div>
-            <div className="addFooter">
-                <div className="backDiv">
-                    <a className="backAnchor" onClick = {() => {
+            <div className="post-footer">
+                <div className="post-back-div">
+                    <a className="post-back-anchor" onClick = {() => {
                             window.location.href = "/posts"
                     }}>back</a>
                 </div>
-                <div className="publishDiv">
-                    <button className="publishBtn" type="submit">publish</button>
+                <div className="post-publish-div">
+                    <button className="post-publish-btn" type="submit">publish</button>
                 </div>
             </div>
         </form>

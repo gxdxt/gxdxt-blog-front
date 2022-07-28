@@ -20,123 +20,21 @@ textarea {
 a {
   color: inherit;
   text-decoration: none;
-  box-shadow: inset 0 0 0 0 #f37021;
-  color: #f37021;
+  box-shadow: inset 0 0 0 0 transparent;
+  color: #fafafa;
   margin: 0 -.25rem;
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 a:hover {
-  box-shadow: inset 500px 0 0 0 #f37021;
-  color: white;
+  box-shadow: inset 1000px 0 0 0 transparent;
+  color: #f37021;
 }
 
 * {
   box-sizing: border-box;
 }
 
-.postDiv {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.postTimeStamp {
-  font-size: 15px;
-  opacity: 0.5;
-}
-
-.postUl {
-  /* 가운데 정렬 */
-  margin-left: auto;
-  margin-right: auto;
-  display: table;
-
-  padding: 0;
-  text-align: left;
-  width: auto;
-
-}
-
-.postLi {
-  padding: 20px;
-  list-style: none;
-  font-size: 25px;
-}
-
-
-.postBtn {
-  /* 생략 */
-  padding: 5px 10px 5px 10px;
-  margin:20px;
-  font-size: 15px;
-  font-weight: 400;
-  color:#f37021;
-  text-align: center;
-  text-decoration: none;
-
-  display: flex;
-  width: auto;
-
-  border-color: #f37021;
-  border-radius: 10px;
-
-  display: inline-block;
-
-  /*addition*/
-  margin-left: auto;
-
-  cursor:pointer;
-}
-
-.postBtn:hover {
-  /* padding: 5px 10px 5px 10px;
-  margin:20px;
-  font-size: 15px;
-  font-weight: 400; */
-  color: whitesmoke;
-  /* text-align: center;
-  text-decoration: none; */
-  background-color: #f37021;
-  /* display: flex;
-  width: auto; */
-
-  border-color: whitesmoke;
-  /* border-radius: 10px;
-
-  display: inline-block;
-
-  /*addition*/
-  animation: shake 0.5s;
-}
-
-.post-title-div {
-  padding: 20px;
-  margin:auto;
-  align-items: center;
-}
-
-.post-title {
-  margin: auto;
-  text-align: center;
-  font-size: 50px;
-}
-
-.createTimeInput {
-  display: none;
-}
-
-.postSection {
-  border-radius: 4px;
-  padding: 20px;
-  margin: auto;
-  width: 80%;
-  height: 100vh;
-  font-size: 25px;
-  text-align: left;
-  color: #fafafa;
-  border: 2px solid #f37021;
-}
 
 .addContent {
   margin: 10px;
@@ -152,47 +50,6 @@ a:hover {
   font-size: 30px;
 }
 
-.addFooter {
-  position: fixed;
-  bottom: 0px;
-  height: 100px;
-  width: 100%;
-}
-
-.backBtn {
-    /* 생략 */
-    margin: 10px;
-    padding: 0.25rem 0.5rem;
-  
-    font-size: 1rem;
-    font-weight: 400;
-    text-align: center;
-    text-decoration: none;
-  
-    display: flex;
-    width: auto;
-  
-    border: none;
-    border-radius: 4px;
-  
-    /*addition*/
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-left: auto;
-}
-
-.backAnchor {
-  text-decoration: none;
-  font-size:2rem;
-  color: #f37021;
-  padding:10px 20px 10px 20px;
-  margin:20px;
-  display:inline-block;
-  border-radius: 10px;
-  transition:all 0.1s;
-  text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
-  cursor:pointer;
-}
 
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -206,54 +63,4 @@ a:hover {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-.publishBtn {
-    /* 생략 */
-    padding:10px 20px 10px 20px;
-    margin:20px;
-    font-size: 2rem;
-    font-weight: 400;
-    color: #f37021;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
-  
-    display: flex;
-    width: auto;
-  
-    border: none;
-    border-radius: 10px;
-  
-    display: inline-block;
-  
-    /*addition*/
-    margin-left: auto;
-    margin-right: 10px;
-    cursor:pointer;
-}
-
-.backDiv {
-  float: left;
-}
-
-.publishBtn {
-  float: right;
-}
-
-.deleteDiv {
-  float: right;
-}
-
-.deleteAnchor {
-  text-decoration: none;
-  font-size:2rem;
-  color: #f37021;
-  padding:10px 20px 10px 20px;
-  margin:20px;
-  display:inline-block;
-  border-radius: 10px;
-  transition:all 0.1s;
-  text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
-  cursor:pointer;
 }
