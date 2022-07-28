@@ -3,12 +3,21 @@ import Link from "next/link"
 
 
 const PostListPage = ({ postListData }) => {
+    const Header = () => {
+        return (
+            <div className = "header">
+                <div className = "header-logo-div">
+                <img className = "header-logo" src="gxdxt.png" onClick = {() => {
+                  window.location.href = "/"
+                }}></img>
+                </div>          
+            </div>
+        )
+    }
     return  (
         <main>
+            <Header></Header>
             <div className='postTitle'>
-                <div className="mainTitleDiv">
-                    <h1>gxdxt</h1>
-                </div>
                 <div className='postDiv'>
                     <button className='postBtn' onClick = {() => {
                     window.location.href = "/posts/add"

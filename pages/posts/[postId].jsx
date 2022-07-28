@@ -4,6 +4,17 @@ import { API_HOST } from "../../common";
 import { marked } from "marked";
 
 const PostDetailPage = ({postData}) => {
+    const Header = () => {
+        return (
+            <div className = "header">
+                <div className = "header-logo-div">
+                    <img className = "header-logo" src="../gxdxt.png" onClick = {() => {
+                      window.location.href = "/"
+                    }}></img>
+                </div>          
+            </div>
+        )
+    }
     const {id, title, content} = postData;
     const router = useRouter();
     const handleDelete = async e => {
@@ -21,10 +32,14 @@ const PostDetailPage = ({postData}) => {
     }
 
     return (
+        <>
+        <Header></Header>
         <article id = {id}> 
-            <h1 className = "postTitle">{title}</h1>
+        <div className="post-title-div">
+            <h1 className="post-title">{title}</h1>
+        </div>
             <div className = "SectionDiv">
-            <section className = "postSection" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
+                <section className = "postSection" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
             </div>
             <div className="addFooter">
                 <div className="backDiv">
@@ -37,6 +52,7 @@ const PostDetailPage = ({postData}) => {
                 </div>
             </div>
         </article>
+        </>
     )
 }
 

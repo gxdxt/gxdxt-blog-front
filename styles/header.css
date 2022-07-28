@@ -1,0 +1,39 @@
+.header-logo-div {
+    margin: auto;
+    
+    /*임시*/
+    
+}
+
+.header-logo {
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    
+    /*임시*/
+    
+}
+
+.header-logo:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+.header-icon-div {
+    margin: 1px;
+    color: #f37021;
+}
+
+.header-icon {
+
+}
+
+.header {
+    width: 100;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #f37021;
+    
+}

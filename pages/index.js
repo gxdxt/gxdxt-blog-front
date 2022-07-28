@@ -2,17 +2,23 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const Header = () => {
+    return (
+        <div className = "header">
+            <div className = "header-logo-div">
+                <img className = "header-logo" src="gxdxt.png" onClick = {() => {
+                  window.location.href = "/"
+                }}></img>
+            </div>          
+        </div>
+    )
+}
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>gxdxt</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <main>
+      <Header>
+      </Header>
+      <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to my universe!
-        </h1>
 
         <div className={styles.grid}>
           <a href="./posts" className={styles.card}>
@@ -54,5 +60,6 @@ export default function Home() {
         </a> */}
       </footer>
     </div>
+    </main>
   )
 }
