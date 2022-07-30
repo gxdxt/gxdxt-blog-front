@@ -126,6 +126,7 @@
     margin-right: 10px;
     margin-top: 10px;
     margin-left: auto;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 .post-delete-div {
@@ -160,7 +161,7 @@
     margin:20px;
     font-size: 2rem;
     font-weight: 400;
-    color: #f37021;
+    color:#fafafa;
     text-align: center;
     text-decoration: none;
     text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
@@ -177,8 +178,56 @@
     margin-left: auto;
     margin-right: 10px;
     cursor:pointer;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 .post-publish-title {
     margin: 20px
+}
+
+.post-publish-btn:hover {
+    color: #f37021;
+    border-color: #f37021;
+    border-radius: 10px;
+
+    display: inline-block;
+    box-shadow: inset 1000px 0 0 0 transparent;
+}
+
+.post-edit-div {
+    float: right;
+}
+
+.post-edit-btn {
+       /* 생략 */
+       padding:10px 20px 10px 20px;
+       margin:20px;
+       font-size: 2rem;
+       font-weight: 400;
+       text-align: center;
+       text-decoration: none;
+       text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
+       color:#fafafa;
+       display: flex;
+       width: auto;
+     
+       border: none;
+       border-radius: 10px;
+     
+       display: inline-block;
+     
+       /*addition*/
+       margin-left: auto;
+       margin-right: 10px;
+       cursor:pointer;
+       transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.post-edit-btn:hover {
+    color: #f37021;
+    border-color: #f37021;
+    border-radius: 10px;
+
+    display: inline-block;
+    box-shadow: inset 1000px 0 0 0 transparent;
 }

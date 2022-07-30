@@ -48,6 +48,11 @@ const PostDetailPage = ({postData}) => {
                     }}>back</a>
                 </div>
                 <div className="post-delete-div">
+                    <a className="post-delete-anchor" onClick = {() => {
+                        window.location.href = "/posts/edit?postId="+id
+                    }}>edit</a>
+                </div>
+                <div className="post-delete-div">
                     <a className="post-delete-anchor" onClick = {
                         handleDelete
                     }>delete</a>
