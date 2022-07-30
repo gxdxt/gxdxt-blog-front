@@ -36,7 +36,7 @@ const PostEditPage = ({postData}) => {
     }
     return (
         <>
-        
+        <title>수정하기</title>
         <form onSubmit={handleSubmit}>
             <div className="post-publish-title">
                 <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>

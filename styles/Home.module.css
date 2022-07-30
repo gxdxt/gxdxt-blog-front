@@ -87,7 +87,7 @@
   text-align: left;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #f37021;
+  border: 1px solid transparent;
   border-radius: 10px;
   transition: color 1s ease, border-color 1s ease;
 }
@@ -96,7 +96,7 @@
 .card:focus,
 .card:active {
   color: #f37021;
-  border: 2px solid #f37021;
+  border: 1px solid #f37021;
 }
 
 .card h3 {

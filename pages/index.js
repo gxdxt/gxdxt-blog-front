@@ -17,6 +17,9 @@ export default function Home() {
     <main>
       <Header>
       </Header>
+      <title>
+        gxdxt
+      </title>
       <div className={styles.container}>
       <main className={styles.main}>
 

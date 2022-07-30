@@ -34,7 +34,8 @@ const PostDetailPage = ({postData}) => {
     return (
         <>
         <Header></Header>
-        <article id = {id}> 
+        <article id = {id}>
+        <title>gxdxt</title>
         <div className="post-title-div">
             <h1 className="post-title">{title}</h1>
         </div>

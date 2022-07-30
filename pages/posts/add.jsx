@@ -38,7 +38,7 @@ const PostAddPage = () => {
 
     return (
         <>
-        
+        <title>새 글 작성</title>
         <form onSubmit={handleSubmit}>
             <div className="post-publish-title">
                 <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>

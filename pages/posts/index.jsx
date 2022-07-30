@@ -16,6 +16,7 @@ const PostListPage = ({ postListData }) => {
     }
     return  (
         <main>
+            <title>방명록</title>
             <Header></Header>
             <div className='post-title'>
                 <div className='post-div'>
