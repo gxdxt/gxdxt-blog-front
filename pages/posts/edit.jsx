@@ -38,15 +38,20 @@ const PostEditPage = ({postData}) => {
         <>
         <title>수정하기</title>
         <form onSubmit={handleSubmit}>
-            <div className="post-publish-title">
-                <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
-            </div>
             <div className="addContent">
-                
                 <Container>
-                    <textarea placeholder="Write a story" id = "content" cols = "10" rows = "10" onChange={handleContent} defaultValue={content} />
-                    <div />
-                    <div dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
+                    <div>
+                    <div className="post-publish-title">
+                        <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
+                    </div>
+                    <div className = "post-publish-content">
+                        <textarea placeholder="Write a story" id = "content" onChange={handleContent} defaultValue={content} />
+                    </div>
+                    </div>
+                    <div className="post-display-div">
+                        <div className="post-display-div-title" dangerouslySetInnerHTML={{__html: marked.parse('# '+title)}} />
+                        <div className="post-display-div-content" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
+                    </div>
                 </Container>
             </div>
             <div className="post-footer">
@@ -79,7 +84,7 @@ export const getServerSideProps = async (context) => {
 const Container = styled.div`
     display: grid;
     margin: 10px;
-    grid-template-columns: 45% 10% 45%;
+    grid-template-columns: 50% 50%;
     height: 100vh
 `
 

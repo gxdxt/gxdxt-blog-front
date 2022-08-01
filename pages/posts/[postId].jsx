@@ -39,26 +39,20 @@ const PostDetailPage = ({postData}) => {
         <div className="post-title-div">
             <h1 className="post-title">{title}</h1>
         </div>
-            <div className = "SectionDiv">
-                <section className = "post-section" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
-            </div>
-            <div className="post-footer">
-                <div className="post-back-div">
-                    <a className="post-back-anchor" onClick = {() => {
-                        window.location.href = "/posts"
-                    }}>back</a>
-                </div>
-                <div className="post-delete-div">
-                    <a className="post-delete-anchor" onClick = {() => {
-                        window.location.href = "/posts/edit?postId="+id
-                    }}>edit</a>
-                </div>
-                <div className="post-delete-div">
-                    <a className="post-delete-anchor" onClick = {
-                        handleDelete
-                    }>delete</a>
-                </div>
-            </div>
+        <div className="post-tool">
+            <a onClick = {() => {
+                window.location.href = "/posts"
+            }}>back</a>
+            <a onClick = {() => {
+                window.location.href = "/posts/edit?postId="+id
+            }}>edit</a>
+            <a onClick = {
+                handleDelete
+            }>delete</a>
+        </div>
+        <div className = "SectionDiv">
+            <section className = "post-section" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
+        </div>
         </article>
         </>
     )
