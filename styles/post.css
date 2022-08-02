@@ -251,7 +251,6 @@
 }
 
 #title:focus {
-    border: 1px solid #f37021;
     outline: none;
     color: #fafafa;
 }
@@ -263,7 +262,6 @@
 }
 
 #content:focus {
-    border: 1px solid #f37021;
     outline: none;
     color: #fafafa;
 }
