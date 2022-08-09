@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { API_HOST } from "../../common";
 import { useRouter } from "next/router";
 import { marked } from "marked";
@@ -9,6 +9,9 @@ const PostAddPage = () => {
     const [content, setContent] = useState('');
     const router = useRouter();
 
+    const titleInput = useRef();
+    const contentInput = useRef();
+
     const handleTitle = e => {
         setTitle(e.target.value);
     }
@@ -18,21 +21,37 @@ const PostAddPage = () => {
     }
 
     const handleSubmit = async e => {
+        console.log(title.length);
+        console.log(content.length);
         e.preventDefault();
-        const result = await fetch(`${API_HOST}/posts`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title,
-                content,
-                createTime : new Date()
+        if ((title.length != 0) && (content.length != 0)) {
+            e.preventDefault();
+            const result = await fetch(`${API_HOST}/posts`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title,
+                    content,
+                    createTime : new Date()
+                })
             })
-        })
+            alert('This Post is published!');
+            router.push('/posts');   
 
-        alert('This Post is published!');
-        router.push('/posts');
+        } else {
+
+            if (title.length == 0) {
+                console.log(content);
+                alert('Title is missing');
+            }
+
+            if (content.length == 0) {
+                console.log('the content is empty!');
+                alert('the content is obligatory');
+            }
+        }
     }
     
 
@@ -44,10 +63,10 @@ const PostAddPage = () => {
                 <Container>
                     <div>
                     <div className="post-publish-title">
-                        <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
+                        <input ref = {titleInput} placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
                     </div>
                     <div className = "post-publish-content">
-                        <textarea placeholder="Write a story" id = "content" onChange={handleContent} defaultValue={content} />
+                        <textarea ref = {contentInput} placeholder="Write a story" id = "content" onChange={handleContent} defaultValue={content} />
                     </div>
                     </div>
                     <div className="post-display-div">

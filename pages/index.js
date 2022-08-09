@@ -12,7 +12,7 @@ export default function Home() {
             </div>          
         </div>
     )
-}
+  }
   return (
     <main>
       <Header>
@@ -33,7 +33,7 @@ export default function Home() {
             <h3>Learn &rarr;</h3>
             <p>Archive for what I Learned !</p>
           </a>
-
+          
           <a
             href="./posts"
             className={styles.card}
