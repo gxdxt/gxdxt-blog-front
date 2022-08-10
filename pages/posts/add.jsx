@@ -17,7 +17,10 @@ const PostAddPage = () => {
     }
 
     const handleContent = e => {
-        setContent(e.target.value);
+        var tmp = e.target.value;
+        tmp = tmp.replace(/(?:\r\n|\r|\n)/g, '<br />');
+        console.log(tmp);
+        setContent(tmp);
     }
 
     const handleSubmit = async e => {
