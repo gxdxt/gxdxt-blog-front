@@ -19,13 +19,10 @@ const PostAddPage = () => {
     const handleContent = e => {
         var tmp = e.target.value;
         tmp = tmp.replace(/(?:\r\n|\r|\n)/g, '<br />');
-        console.log(tmp);
         setContent(tmp);
     }
 
     const handleSubmit = async e => {
-        console.log(title.length);
-        console.log(content.length);
         e.preventDefault();
         if ((title.length != 0) && (content.length != 0)) {
             e.preventDefault();
