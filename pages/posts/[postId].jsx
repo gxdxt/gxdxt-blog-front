@@ -57,17 +57,17 @@ const PostDetailPage = ({postData}) => {
             const result = await fetch(`${API_HOST}/comment`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'aplication/json',
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     postId: id,
-                    comment: comment,
+                    comment,
                     createdAt: new Date(),
                 })
             })
         }
         alert('This comment is published');
-        router.push('/posts/'+id)
+        router.push('/posts/'+id);
     }
 
     return (
