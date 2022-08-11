@@ -88,7 +88,8 @@
     font-size: 25px;
     text-align: left;
     color: #fafafa;
-    border: 2px solid #f37021;
+    /* border: 2px solid #f37021; */
+    background-color: #262626;
 }
 
 .post-back-div {
@@ -299,18 +300,36 @@
 
 }
 
+#commentInput {
+    width: 100%;
+    color: #fafafa;
+    border: none;
+    background-color: black;
+}
+
+.commentSubmitBtn {
+    float: right;
+    color: #fafafa;
+}
+
 .reply-ul {
     
     padding: 0;
     text-align: left;
     width: auto;
 
-    border: 1px solid #f37021;
+    /* border: 1px solid #f37021; */
 }
 
 .reply-li {
     list-style-type: none;
     color: #fafafa;
     font-size: 25px;
-    border: 1px solid #f37021;
+    border-bottom: 1px solid #f37021;
+    padding: 5px;
+}
+
+.replyCreatedTime {
+    font-size: 15px;
+    opacity: 0.7
 }

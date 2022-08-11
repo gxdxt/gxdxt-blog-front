@@ -68,6 +68,7 @@ const PostDetailPage = ({postData}) => {
         }
         alert('This comment is published');
         router.push('/posts/'+id);
+        setComment('');
     }
 
     return (
@@ -95,6 +96,12 @@ const PostDetailPage = ({postData}) => {
         </article>
         
         <div className = "ReplyDiv">
+
+            <span>{reply.length}개의 댓글</span>
+            <form onSubmit={commentSubmitHandler}>
+                <textarea placeholder="comment" type = "text" id = "commentInput" value = {comment} onChange={handleComment}/>
+                <button type="submit" className="commentSubmitBtn">comment</button>
+            </form>
             <div className = "reply-view-div">
 {
                 reply.length === 0 
@@ -109,7 +116,9 @@ const PostDetailPage = ({postData}) => {
                                                 <a>
                                                     {reply.comment}
                                                 </a>
-                                                <span>{reply.createdAt}</span>
+                                                <span className="replyCreatedTime">
+                                                    {reply.createdAt}
+                                                </span>
                                                 
                                         </li>
                                     )
@@ -120,10 +129,7 @@ const PostDetailPage = ({postData}) => {
                     )
         }
             </div>
-            <form onSubmit={commentSubmitHandler}>
-                <input placeholder="comment" type = "text" id = "comment" value = {comment} onChange={handleComment}/>
-                <button type="submit">comment</button>
-            </form>
+
         </div>
         <Footer></Footer>
         </>
