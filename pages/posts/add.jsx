@@ -33,7 +33,8 @@ const PostAddPage = () => {
                 body: JSON.stringify({
                     title,
                     content,
-                    createTime : new Date()
+                    createTime : new Date(),
+                    reply: Array(),
                 })
             })
             alert('This Post is published!');
