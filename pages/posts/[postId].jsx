@@ -57,7 +57,7 @@ const PostDetailPage = ({postData}) => {
             const result = await fetch(`${API_HOST}/comment`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'aplication/json',
                 },
                 body: JSON.stringify({
                     postId: id,
