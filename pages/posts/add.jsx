@@ -25,7 +25,6 @@ const PostAddPage = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         if ((title.length != 0) && (content.length != 0)) {
-            e.preventDefault();
             const result = await fetch(`${API_HOST}/posts`, {
                 method: 'POST',
                 headers: {
