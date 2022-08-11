@@ -45,6 +45,7 @@ const PostDetailPage = ({postData}) => {
         
     }
     const [comment, setComment] = useState('');
+    const [now, setNow] = useState(new Date());
 
     const handleComment = e => {
         setComment(e.target.value);
@@ -70,6 +71,39 @@ const PostDetailPage = ({postData}) => {
         router.push('/posts/'+id);
         setComment('');
     }
+
+    const countTimeDiff = (time) => {
+        const start = new Date(time);
+        const end = new Date();
+
+        const diff = (end - start);
+
+        const times = [
+            { time: "분", milliSeconds: 1000 * 60 },
+            { time: "시간", milliSeconds: 1000 * 60 * 60 },
+            { time: "일", milliSeconds: 1000 * 60 * 60 * 24 },
+            { time: "개월", milliSeconds: 1000 * 60 * 60 * 24 * 30 },
+            { time: "년", milliSeconds: 1000 * 60 * 60 * 24 * 365 },
+        ].reverse();
+
+        // 년 단위부터 알맞는 단위 찾기
+        for (const value of times) {
+            const betweenTime = Math.floor(diff / value.milliSeconds);
+            
+        // 큰 단위는 0보다 작은 소수점 값이 나옴
+            if (betweenTime > 0) {
+            return `${betweenTime}${value.time} 전`;
+            }
+        }
+        
+        // 모든 단위가 맞지 않을 시
+        return "방금 전";
+    }
+
+
+
+    
+    
 
     return (
         <>
@@ -98,6 +132,7 @@ const PostDetailPage = ({postData}) => {
         <div className = "ReplyDiv">
 
             <span>{reply.length}개의 댓글</span>
+            <div ><br/></div>
             <form onSubmit={commentSubmitHandler}>
                 <textarea placeholder="comment" type = "text" id = "commentInput" value = {comment} onChange={handleComment}/>
                 <button type="submit" className="commentSubmitBtn">comment</button>
@@ -116,9 +151,9 @@ const PostDetailPage = ({postData}) => {
                                                 <a>
                                                     {reply.comment}
                                                 </a>
-                                                <span className="replyCreatedTime">
-                                                    {reply.createdAt}
-                                                </span>
+                                                <div className="replyCreatedTime">
+                                                    {countTimeDiff(reply.createdAt)}
+                                                </div>
                                                 
                                         </li>
                                     )
