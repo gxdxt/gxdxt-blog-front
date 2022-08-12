@@ -18,7 +18,7 @@ const PostAddPage = () => {
 
     const handleContent = e => {
         var tmp = e.target.value;
-        tmp = tmp.replace(/(?:\r\n|\r|\n)/g, '<br />');
+        tmp = tmp.replace(/(?:\r\n|\r|\n)/g, '<br />\n');
         setContent(tmp);
     }
 

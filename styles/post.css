@@ -325,7 +325,7 @@
     list-style-type: none;
     color: #fafafa;
     font-size: 25px;
-    border-bottom: 1px solid #f37021;
+    border-bottom: 1px dashed #f37021;
     padding: 5px;
 }
 

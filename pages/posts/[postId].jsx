@@ -2,11 +2,11 @@
 import { useRouter } from "next/router"
 import { API_HOST } from "../../common";
 import { marked } from "marked";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { memo } from "react";
 
 const PostDetailPage = ({postData}) => {
-
-
+    
     const Header = () => {
         return (
             <div className = "header">
@@ -45,13 +45,13 @@ const PostDetailPage = ({postData}) => {
         
     }
     const [comment, setComment] = useState('');
-    const [now, setNow] = useState(new Date());
 
     const handleComment = e => {
+        e.preventDefault();
         setComment(e.target.value);
         console.log(comment);
     }
-
+    console.log()
     const commentSubmitHandler = async e => {
         e.preventDefault();
         if (comment.length != 0) {
@@ -99,7 +99,29 @@ const PostDetailPage = ({postData}) => {
         // 모든 단위가 맞지 않을 시
         return "방금 전";
     }
-
+    console.log('rendering outside');
+    const Reply = (postData) => {
+        console.log('rendering in reply tag');
+        return (
+            <ul className='reply-ul'>
+            {
+                reply.map(
+                    (reply) => (
+                        <li key = {reply.comment} className = 'reply-li'>
+                                <a>
+                                    {reply.comment}
+                                </a>
+                                <div className="replyCreatedTime">
+                                    {countTimeDiff(reply.createdAt)}
+                                </div>
+                                
+                        </li>
+                    )
+                )
+            }
+        </ul>
+        )
+    };
 
 
     
@@ -143,23 +165,7 @@ const PostDetailPage = ({postData}) => {
                 ?   (<div>reply is empty</div>)
                 :   (
                     <div>
-                        <ul className='reply-ul'>
-                            {
-                                reply.map(
-                                    (reply) => (
-                                        <li key = {reply.comment} className = 'reply-li'>
-                                                <a>
-                                                    {reply.comment}
-                                                </a>
-                                                <div className="replyCreatedTime">
-                                                    {countTimeDiff(reply.createdAt)}
-                                                </div>
-                                                
-                                        </li>
-                                    )
-                                )
-                            }
-                        </ul>
+                        <Reply></Reply>
                     </div>
                     )
         }
@@ -176,11 +182,10 @@ export const getServerSideProps = async (context) => {
     const {postId} = context.query; 
     const response = await fetch(`${API_HOST}/posts?postId=${postId}`)
     const postData = await response.json();
-
-
+    postData.reply = postData.reply.reverse() 
     return {
         props: {
-            postData
+            postData,
         }
     }
 }
