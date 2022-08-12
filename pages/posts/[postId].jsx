@@ -2,8 +2,7 @@
 import { useRouter } from "next/router"
 import { API_HOST } from "../../common";
 import { marked } from "marked";
-import { useState, useMemo } from "react";
-import { memo } from "react";
+import { useState } from "react";
 
 const PostDetailPage = ({postData}) => {
     
@@ -157,7 +156,7 @@ const PostDetailPage = ({postData}) => {
             <div ><br/></div>
             <form onSubmit={commentSubmitHandler}>
                 <textarea placeholder="comment" type = "text" id = "commentInput" value = {comment} onChange={handleComment}/>
-                <button type="submit" className="commentSubmitBtn">comment</button>
+                <button type="submit" className="reply-post-btn">comment</button>
             </form>
             <div className = "reply-view-div">
 {

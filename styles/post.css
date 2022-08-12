@@ -300,16 +300,52 @@
 
 }
 
+.reply-post-btn {
+    /* 생략 */
+    padding: 5px 10px 5px 10px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 400;
+    color:#fafafa;
+    text-align: center;
+    text-decoration: none;
+
+    display: flex;
+    width: auto;
+    float: right;
+    border-color: #fafafa;
+    border-radius: 10px;
+
+    display: inline-block;
+
+    /*addition*/
+    margin-left: auto;
+
+    cursor:pointer;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.reply-post-btn:hover {
+    color: #f37021;
+    border-color: #f37021;
+    border-radius: 10px;
+
+    display: inline-block;
+    box-shadow: inset 1000px 0 0 0 transparent;
+}
+
+
+
+.reply-view-div {
+    margin-top: 60px;
+}
+
 #commentInput {
     width: 100%;
     color: #fafafa;
     border: none;
     background-color: black;
-}
-
-.commentSubmitBtn {
-    float: right;
-    color: #fafafa;
+    height: 60px;
 }
 
 .reply-ul {
@@ -325,8 +361,8 @@
     list-style-type: none;
     color: #fafafa;
     font-size: 25px;
-    border-bottom: 1px dashed #f37021;
-    padding: 5px;
+    border-bottom: 1px solid rgb(243, 112, 33, .5);
+    padding: 20px;
 }
 
 .replyCreatedTime {
