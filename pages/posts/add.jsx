@@ -76,6 +76,12 @@ const PostAddPage = () => {
             tags.map((tag) => (
                 <span key={tag} className="post-publish-tag">
                     {tag}
+                    <span onClick={()=>{
+                        console.log(tags.indexOf(tag));
+                        const filtered = tags.filter(item=> item != tag)
+                        console.log('filtered', filtered);
+                        setTags(filtered);
+                    }} className="tag-remove-btn">x</span>
                 </span>
             ))
         )
