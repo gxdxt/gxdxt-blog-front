@@ -30,9 +30,11 @@ const PostAddPage = () => {
 
     const storeTag = e => {
         const filterTag = tag.slice(0,tag.length-1)
-        setTags(prev => (
-            [...prev, filterTag]
-        ))
+        if (!tags.includes(filterTag)) {
+            setTags(prev => (
+                [...prev, filterTag]
+            ))    
+        };
         setTag('');
     }
 
