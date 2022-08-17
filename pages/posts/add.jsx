@@ -7,6 +7,8 @@ import styled from "@emotion/styled";
 const PostAddPage = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [tag, setTag] = useState('');
+    const [tags, setTags] = useState([]);
     const router = useRouter();
 
     const titleInput = useRef();
@@ -22,6 +24,18 @@ const PostAddPage = () => {
         setContent(tmp);
     }
 
+    const handleTag = e => {
+        setTag(e.target.value);
+    }
+
+    const storeTag = e => {
+        const filterTag = tag.slice(0,tag.length-1)
+        setTags(prev => (
+            [...prev, filterTag]
+        ))
+        setTag('');
+    }
+
     const handleSubmit = async e => {
         e.preventDefault();
         if ((title.length != 0) && (content.length != 0)) {
@@ -32,6 +46,7 @@ const PostAddPage = () => {
                 },
                 body: JSON.stringify({
                     title,
+                    tags: tags,
                     content,
                     createTime : new Date(),
                     reply: Array(),
@@ -53,6 +68,18 @@ const PostAddPage = () => {
             }
         }
     }
+
+    const TagDisplay = () => {
+        console.log('tags', tags);
+        console.log('여기 안들어와?');
+        return (
+            tags.map((tag) => (
+                <span key={tag} className="post-publish-tag">
+                    {tag}
+                </span>
+            ))
+        )
+    }
     
 
     return (
@@ -64,6 +91,22 @@ const PostAddPage = () => {
                     <div>
                     <div className="post-publish-title">
                         <input ref = {titleInput} placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
+                    </div>
+                    <div>
+                        <span className="post-div-tag">
+                            {
+                                tags.length === 0
+                                ? (<div></div>)
+                                : (
+                                <TagDisplay></TagDisplay>  
+                                )}
+                        </span>
+                        <input placeholder="tag" type = "text" id = "tag" value = {tag} onChange={handleTag} onKeyUp={ (e) => {
+                            console.log('onkeypress', e.key);
+                            if (e.key == 'Enter' || e.key == ',') {
+                                storeTag()
+                            }
+                        }} ></input>
                     </div>
                     <div className = "post-publish-content">
                         <textarea ref = {contentInput} placeholder="Write a story" id = "content" onChange={handleContent} defaultValue={content} />

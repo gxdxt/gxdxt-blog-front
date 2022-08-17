@@ -28,7 +28,7 @@ const PostDetailPage = ({postData}) => {
         )
     }
     
-    const {id, title, content, reply} = postData;
+    const {id, title, content, reply, tags} = postData;
     const router = useRouter();
     const handleDelete = async e => {
         if (confirm('do you really want to delete this post?')) {
@@ -99,7 +99,8 @@ const PostDetailPage = ({postData}) => {
         return "방금 전";
     }
     console.log('rendering outside');
-    const Reply = (postData) => {
+    console.log('just before', tags);
+    const Reply = () => {
         console.log('rendering in reply tag');
         return (
             <ul className='reply-ul'>
@@ -122,6 +123,23 @@ const PostDetailPage = ({postData}) => {
         )
     };
 
+    const Tag = () => {
+        console.log('tag data rendering');
+        const tagList = tags
+        console.log('??',tagList);
+        return (
+            <ul className = 'tag-ul'>
+                {
+                    tagList.map((tag) => (
+                        <li key={tag} className='tag-li'>
+                            {tag}
+                        </li>
+                    ))
+                }
+            </ul>
+        )
+    }
+
 
     
     
@@ -133,6 +151,15 @@ const PostDetailPage = ({postData}) => {
         <title>gxdxt</title>
         <div className="post-title-div">
             <h1 className="post-title">{title}</h1>
+        </div>
+        <div>
+            {
+                tags.length === 0
+                ? (<div></div>)
+                : (
+                        <Tag></Tag>
+                )
+            }
         </div>
         <div className="post-tool">
             <a onClick = {() => {

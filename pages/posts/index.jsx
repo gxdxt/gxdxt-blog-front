@@ -40,6 +40,15 @@ const PostListPage = ({ postListData }) => {
                                                     {postData.title}
                                                 </a>
                                             </Link>
+                                            <div className="tag-div">
+                                                {
+                                                        postData.tags.map((tag,index)=> (
+                                                        <span key={index} className="tag-li">
+                                                            {tag}
+                                                        </span>
+                                                        ))
+                                                }
+                                            </div>
                                             <div className="post-timestamp">
                                                 {postData.createTime.slice(0,10)}
                                             </div>
