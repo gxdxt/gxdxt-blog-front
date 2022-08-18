@@ -160,12 +160,13 @@
 .post-publish-tag {
     list-style-type: none;
     display: inline-block;
-    margin-left: 10px;
+    margin-right: 10px;
     border: 1px solid #f37021;
     border-radius: 3rem;
     padding-left: 8px;
     padding-right: 8px;
     font-size: 15px;
+    height:100%;
 }
 
 .tag-remove-btn {
@@ -266,11 +267,27 @@
 #title {
     color: #fafafa;
     width: 100%;
+    height: 70px;
+    border: none;
+    resize: none;
 }
 
 #title:focus {
     outline: none;
     color: #fafafa;
+}
+
+#tag {
+    outline: none;
+    color: #fafafa;
+    border: none;
+    resize: none;
+    margin-bottom: 10px;
+    height: 100%;
+}
+
+#tag:focus {
+    
 }
 
 #content {
@@ -420,4 +437,21 @@
    padding-left: 8px;
    padding-right: 8px;
    font-size: 15px;
+}
+
+.tagAll-li {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 10px;
+    border: 1px solid #212121;
+    color: #f37021;
+    border-radius: 3rem;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.tag-cnt {
+    opacity: .5;
 }

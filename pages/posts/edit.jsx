@@ -8,11 +8,17 @@ const PostEditPage = ({postData}) => {
     const id = postData.id;
 
     const [title, setTitle] = useState(postData.title);
+    const [tags, setTags] = useState(postData.tags);
+    const [tag, setTag] = useState('');
     const [content, setContent] = useState(postData.content);
     const router = useRouter();
 
     const handleTitle = e => {
         setTitle(e.target.value);
+    }
+
+    const handleTag = e => {
+        setTag(e.target.value);
     }
 
     const handleContent = e => {
@@ -28,12 +34,41 @@ const PostEditPage = ({postData}) => {
             },
             body: JSON.stringify({
                 title,
+                tags,
                 content,
             })
         })
         alert('This Post is edited!');
         router.push('/posts/'+id);
     }
+    const storeTag = e => {
+        const filterTag = tag.slice(0,tag.length-1)
+        if (!tags.includes(filterTag)) {
+            setTags(prev => (
+                [...prev, filterTag]
+            ))    
+        };
+        setTag('');
+    }
+
+    const TagDisplay = () => {
+        console.log('tags', tags);
+        console.log('여기 안들어와?');
+        return (
+            tags.map((tag) => (
+                <span key={tag} className="post-publish-tag">
+                    {tag}
+                    <span onClick={()=>{
+                        console.log(tags.indexOf(tag));
+                        const filtered = tags.filter(item=> item != tag)
+                        console.log('filtered', filtered);
+                        setTags(filtered);
+                    }} className="tag-remove-btn">x</span>
+                </span>
+            ))
+        )
+    }
+
     return (
         <>
         <title>수정하기</title>
@@ -43,6 +78,24 @@ const PostEditPage = ({postData}) => {
                     <div>
                     <div className="post-publish-title">
                         <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
+                    </div>
+                    <div>
+                        <span className="post-div-tag">
+                            {
+                                tags.length === 0
+                                ? (<div></div>)
+                                : (
+                                <TagDisplay></TagDisplay>  
+                                )}
+                        </span>
+                        <textarea placeholder="tag" type = "text" id = "tag" value = {tag} onChange={handleTag} onKeyUp={ (e) => {
+                            console.log('onkeypress', e.key);
+                            if (e.key == 'Enter' || e.key == ',') {
+                                storeTag()
+                            }
+                        }} onFocus={()=>{
+                            console.log('focus!');
+                        }} autoComplete="off"></textarea>
                     </div>
                     <div className = "post-publish-content">
                         <textarea placeholder="Write a story" id = "content" onChange={handleContent} defaultValue={content} />

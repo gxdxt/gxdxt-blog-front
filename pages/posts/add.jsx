@@ -89,6 +89,13 @@ const PostAddPage = () => {
         )
     }
     
+    const TagHoverAnnounce = () => {
+        console.log('');
+        return (
+            <div>쉼표를 입력하여 태그를 등록할 수 있습니다.</div>
+        )
+    }
+    
 
     return (
         <>
@@ -98,7 +105,7 @@ const PostAddPage = () => {
                 <Container>
                     <div>
                     <div className="post-publish-title">
-                        <input ref = {titleInput} placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
+                        <textarea ref = {titleInput} placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
                     </div>
                     <div>
                         <span className="post-div-tag">
@@ -109,12 +116,14 @@ const PostAddPage = () => {
                                 <TagDisplay></TagDisplay>  
                                 )}
                         </span>
-                        <input placeholder="tag" type = "text" id = "tag" value = {tag} onChange={handleTag} onKeyUp={ (e) => {
+                        <textarea placeholder="tag" type = "text" id = "tag" value = {tag} onChange={handleTag} onKeyUp={ (e) => {
                             console.log('onkeypress', e.key);
                             if (e.key == 'Enter' || e.key == ',') {
                                 storeTag()
                             }
-                        }} ></input>
+                        }} onFocus={()=>{
+                            console.log('focus!');
+                        }} autoComplete="off"></textarea>
                     </div>
                     <div className = "post-publish-content">
                         <textarea ref = {contentInput} placeholder="Write a story" id = "content" onChange={handleContent} defaultValue={content} />

@@ -1,8 +1,42 @@
 import { API_HOST } from "../../common"
+import { useState, useMemo } from "react"
 import Link from "next/link"
 
 
 const PostListPage = ({ postListData }) => {
+    const [tagList, setTagList] = useState([]);
+    const [tagCntList, setTagCntList] = useState({});
+    const [content, setContent] = useState(postListData)
+    console.log('content', content);
+    const getAllTags = useMemo(() => {
+        postListData.map((post) => (
+            post.tags.map((tag) => (
+                tagList.push(tag)
+            ))
+        ))
+        console.log(tagList);
+        tagCntList['All'] = postListData.length
+        tagList.map((tag) => (
+            !tagCntList[tag]
+            ? tagCntList[tag] = 1
+            : tagCntList[tag] += 1
+        ))
+        console.log(tagCntList)
+    }, [])
+
+    const searchTag = async param =>  {
+        console.log(param);
+        const res = await fetch(`${API_HOST}/posts?tag=`+param);
+        const tagListData = await res.json();
+        console.log('searchTag', tagListData);
+        if (tagListData.length === 1){}
+        else{
+        (tagListData.sort( (a, b) => {
+            if (a.createTime < b.createTime) return 1;
+            if (a.createTime > b.createTime) return -1;
+        }))}
+        setContent(tagListData);
+    }
     const Header = () => {
         return (
             <div className = "header">
@@ -24,15 +58,38 @@ const PostListPage = ({ postListData }) => {
                     window.location.href = "/posts/add"
                     }}>post</button>         
                 </div>
+                <div>
+                    {
+                    tagList.length === 0
+                    ? (<div>tag doesn't exist</div>)
+                    : (
+                        <div>
+                            <ul className='tag-ul'>
+                                {
+                                Object.entries(tagCntList).map(
+                                    (tag, idx) => (
+                                        <li key={idx} className="tagAll-li">
+                                            <span onClick={
+                                            () => searchTag(tag[0])
+                                        }>{tag[0]}</span> <span className="tag-cnt">{tag[1]}</span>
+                                        </li>       
+                                    )
+                                )
+                                }
+                            </ul>
+                        </div>
+                    )
+                    }
+                </div>
             </div>
             {
-                postListData.length === 0 
+                content.length === 0 
                 ?   (<div>data is empty</div>)
                 :   (
                     <div>
                         <ul className='post-ul'>
                             {
-                                postListData.map(
+                                content.map(
                                     (postData) => (
                                         <li key = {postData.id} className = 'post-li'>
                                             <Link href={`/posts/${postData.id}`} >
