@@ -101,7 +101,7 @@ const PostListPage = ({ postListData }) => {
                                                 {
                                                         postData.tags.map((tag,index)=> (
                                                         <span key={index} className="tag-li">
-                                                            {tag}
+                                                            #{tag}
                                                         </span>
                                                         ))
                                                 }
