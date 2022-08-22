@@ -18,7 +18,7 @@
 
     padding: 0;
     text-align: left;
-    width: auto;
+    width: 50%;
 
 }
 
@@ -166,7 +166,6 @@
     padding-left: 8px;
     padding-right: 8px;
     font-size: 15px;
-    height:100%;
 }
 
 .tag-remove-btn {
@@ -277,17 +276,31 @@
     color: #fafafa;
 }
 
+.post-div-tag {
+    height: 30px;
+}
+
 #tag {
     outline: none;
     color: #fafafa;
     border: none;
     resize: none;
-    margin-bottom: 10px;
-    height: 100%;
+    height: 20px;
+    overflow: hidden;
 }
 
 #tag:focus {
     
+}
+
+.post-div-tag {
+    height: 30px;    
+    display: flex;
+}
+
+.post-span-tag {
+    height: 20px;
+
 }
 
 #content {
@@ -408,15 +421,21 @@
     height:max-content;
     width : 100%;
     font-size: 18px;
-    text-align: right;
+    text-align: left;
     padding-right: 10px;
+    margin: 5px;
 }
 
 .tag-div > span {
-    display: table-cell;
     vertical-align: middle;
     text-align: right;
-    margin-left: 100px;
+    margin-right: 10px;
+    margin-left: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: none;
+    border-bottom: 1px solid #f37021;
+    opacity: .7;
 }
 
 .tag-ul {
