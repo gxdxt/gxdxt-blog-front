@@ -28,12 +28,21 @@ const PostAddPage = () => {
         setTag(e.target.value);
     }
 
-    const storeTag = e => {
+    const storeTagByComma = e => {
         const filterTag = tag.slice(0,tag.length-1)
         if (!tags.includes(filterTag)) {
             setTags(prev => (
                 [...prev, filterTag]
             ))    
+        };
+        setTag('');
+    }
+
+    const storeTagByEnter = e => {
+        if (!tags.includes(tag)) {
+            setTags(prev => (
+                [...prev, tag]
+            ))
         };
         setTag('');
     }
@@ -72,8 +81,6 @@ const PostAddPage = () => {
     }
 
     const TagDisplay = () => {
-        console.log('tags', tags);
-        console.log('여기 안들어와?');
         return (
             tags.map((tag) => (
                 <span key={tag} className="post-publish-tag">
@@ -107,8 +114,8 @@ const PostAddPage = () => {
                     <div className="post-publish-title">
                         <textarea ref = {titleInput} placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
                     </div>
-                    <div>
-                        <span className="post-div-tag">
+                    <div className="post-div-tag">
+                        <span className="post-span-tag">
                             {
                                 tags.length === 0
                                 ? (<div></div>)
@@ -118,8 +125,10 @@ const PostAddPage = () => {
                         </span>
                         <textarea placeholder="tag" type = "text" id = "tag" value = {tag} onChange={handleTag} onKeyUp={ (e) => {
                             console.log('onkeypress', e.key);
-                            if (e.key == 'Enter' || e.key == ',') {
-                                storeTag()
+                            if (e.key == 'Enter') {
+                                storeTagByEnter()
+                            } else if (e.key == ',') {
+                                storeTagByComma()
                             }
                         }} onFocus={()=>{
                             console.log('focus!');
