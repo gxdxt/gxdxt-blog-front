@@ -43,7 +43,7 @@ export default function Home() {
           </a>
 
           <a
-            href="./posts"
+            href="./profile"
             className={styles.card}
           >
             <h3>Profile &rarr;</h3>
