@@ -35,14 +35,14 @@
     margin:20px;
     font-size: 15px;
     font-weight: 400;
-    color:#fafafa;
+    color: var(--main-white);
     text-align: center;
     text-decoration: none;
 
     display: flex;
     width: auto;
 
-    border-color: #fafafa;
+    border-color: var(--main-white);
     border-radius: 10px;
 
     display: inline-block;
@@ -55,8 +55,8 @@
 }
 
 .post-btn:hover {
-    color: #f37021;
-    border-color: #f37021;
+    color: var(--main-color2);
+    border-color: var(--main-color2);
     border-radius: 10px;
 
     display: inline-block;
@@ -87,9 +87,9 @@
     height: 100vh;
     font-size: 25px;
     text-align: left;
-    color: #fafafa;
-    /* border: 2px solid #f37021; */
-    background-color: #262626;
+    color: var(--main-white);
+    /* border: 2px solid var(--main-color2); */
+    background-color: var(--main-black)
 }
 
 .post-back-div {
@@ -161,7 +161,7 @@
     list-style-type: none;
     display: inline-block;
     margin-right: 10px;
-    border: 1px solid #f37021;
+    border: 1px solid var(--main-color2);
     border-radius: 3rem;
     padding-left: 8px;
     padding-right: 8px;
@@ -170,7 +170,7 @@
 
 .tag-remove-btn {
     padding-left: 5px;
-    color: #f37021;
+    color: var(--main-color2);
     cursor: pointer;
 }
 
@@ -180,7 +180,7 @@
     margin:20px;
     font-size: 2rem;
     font-weight: 400;
-    color:#fafafa;
+    color:var(--main-white);
     text-align: center;
     text-decoration: none;
   
@@ -205,8 +205,8 @@
 }
 
 .post-publish-btn:hover {
-    color: #f37021;
-    border-color: #f37021;
+    color: var(--main-color2);
+    border-color: var(--main-color2);
     border-radius: 10px;
 
     display: inline-block;
@@ -226,7 +226,7 @@
        text-align: center;
        text-decoration: none;
        text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
-       color:#fafafa;
+       color:var(--main-white);
        display: flex;
        width: auto;
      
@@ -243,8 +243,8 @@
 }
 
 .post-edit-btn:hover {
-    color: #f37021;
-    border-color: #f37021;
+    color: var(--main-color2);
+    border-color: var(--main-color2);
     border-radius: 10px;
 
     display: inline-block;
@@ -258,13 +258,13 @@
 }
 
 .post-publish-title {
-    color: #fafafa;
+    color: var(--main-white);
     width: 100%;
     margin-right: 20px;
 }
 
 #title {
-    color: #fafafa;
+    color: var(--main-white);
     width: 100%;
     height: 70px;
     border: none;
@@ -273,7 +273,7 @@
 
 #title:focus {
     outline: none;
-    color: #fafafa;
+    color: var(--main-white);
 }
 
 .post-div-tag {
@@ -282,7 +282,7 @@
 
 #tag {
     outline: none;
-    color: #fafafa;
+    color: var(--main-white);
     border: none;
     resize: none;
     height: 20px;
@@ -306,12 +306,12 @@
 #content {
     width: 100%;
     height: 100%;
-    color: #fafafa;
+    color: var(--main-white);
 }
 
 #content:focus {
     outline: none;
-    color: #fafafa;
+    color: var(--main-white);
 }
 
 .post-display-div {
@@ -353,14 +353,14 @@
     margin-top: 20px;
     font-size: 15px;
     font-weight: 400;
-    color:#fafafa;
+    color:var(--main-white);
     text-align: center;
     text-decoration: none;
 
     display: flex;
     width: auto;
     float: right;
-    border-color: #fafafa;
+    border-color: var(--main-white);
     border-radius: 10px;
 
     display: inline-block;
@@ -373,8 +373,8 @@
 }
 
 .reply-post-btn:hover {
-    color: #f37021;
-    border-color: #f37021;
+    color: var(--main-color2);
+    border-color: var(--main-color2);
     border-radius: 10px;
 
     display: inline-block;
@@ -389,9 +389,9 @@
 
 #commentInput {
     width: 100%;
-    color: #fafafa;
+    color: var(--main-white);
     border: none;
-    background-color: black;
+    background-color: var(--main-black);
     height: 60px;
 }
 
@@ -401,14 +401,14 @@
     text-align: left;
     width: auto;
 
-    /* border: 1px solid #f37021; */
+    /* border: 1px solid var(--main-color2); */
 }
 
 .reply-li {
     list-style-type: none;
-    color: #fafafa;
+    color: var(--main-white);
     font-size: 25px;
-    border-bottom: 1px solid rgb(243, 112, 33, .5);
+    border-bottom: 1px solid var(--main-color);
     padding: 20px;
 }
 
@@ -434,7 +434,7 @@
     padding-top: 2px;
     padding-bottom: 2px;
     border: none;
-    border-bottom: 1px solid #f37021;
+    border-bottom: 1px solid var(--main-color2);
     opacity: .7;
 }
 
@@ -451,7 +451,7 @@
    list-style-type: none;
    display: inline-block;
    margin-left: 10px;
-   border: 1px solid #f37021;
+   border: 1px solid var(--main-color2);
    border-radius: 3rem;
    padding-left: 8px;
    padding-right: 8px;
@@ -462,8 +462,8 @@
     list-style-type: none;
     display: inline-block;
     margin-left: 10px;
-    border: 1px solid #212121;
-    color: #f37021;
+    border: 1px solid var(--main-black);
+    color: var(--main-color2);
     border-radius: 3rem;
     padding-left: 8px;
     padding-right: 8px;
