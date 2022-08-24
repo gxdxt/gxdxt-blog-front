@@ -20,7 +20,9 @@ const PostListPage = ({ postListData }) => {
     const [tagList, setTagList] = useState([]);
     const [tagCntList, setTagCntList] = useState({});
     const [content, setContent] = useState(postListData)
-    console.log('content', content);
+   
+    console.log(application.localStorage);
+
     const getAllTags = useMemo(() => {
         postListData.map((post) => (
             post.tags.map((tag) => (
@@ -136,6 +138,7 @@ const PostListPage = ({ postListData }) => {
 }
 
 export const getServerSideProps = async () => {
+    
     const res = await fetch(`${API_HOST}/posts`);
     const postListData = await res.json();
     postListData.sort( (a, b) => {

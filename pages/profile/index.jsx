@@ -28,7 +28,9 @@ const ProfilePage = ({ profileData }) => {
                 <img className = "header-logo" src={logo} onClick = {() => {
                   window.location.href = "/"
                 }}></img>
+                <div className="theme-div">
                  <a className="theme-btn" onClick={changeColor}>{theme}</a> 
+                 </div>
                 </div>
             </div>
         )

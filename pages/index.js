@@ -9,11 +9,13 @@ export default function Home() {
     if (document.querySelector('body').dataset.theme == 'light') {
         delete document.querySelector('body').dataset.theme
         setLogo('gxdxt.png');
-        setTheme('🌚')
+        setTheme('🌚');
+        window.localStorage.setItem('theme', 'dark');
     } else {
         document.querySelector('body').dataset.theme = 'light' 
         setLogo('gxdxt_light.png');
-        setTheme('🌝')
+        setTheme('🌝');
+        window.localStorage.setItem('theme', 'light');
     }
 }
   
@@ -41,8 +43,8 @@ export default function Home() {
 
         <div className={styles.grid}>
           <a href="./posts" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>My Daily Life Journal</p>
+            <h3>Books &rarr;</h3>
+            <p>My Book Review</p>
           </a>
 
           <a href="./posts" className={styles.card}>
