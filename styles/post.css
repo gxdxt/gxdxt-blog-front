@@ -315,7 +315,7 @@
 }
 
 .post-display-div {
-    background-color: #262626;
+    background-color: var(--main-black);
 }
 
 .post-display-div-title {

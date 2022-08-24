@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { API_HOST } from "../../common";
 import { useRouter } from "next/router";
 import { marked } from "marked";
@@ -12,6 +12,18 @@ const PostEditPage = ({postData}) => {
     const [tag, setTag] = useState('');
     const [content, setContent] = useState(postData.content);
     const router = useRouter();
+
+    useEffect(() => {
+        if (window.localStorage.getItem('theme') == "\"light\"") {
+            console.log('light 모드로 진입');
+            document.querySelector('body').dataset.theme = 'light'
+        } else {
+            console.log('dark 모드로 진입');  
+            delete document.querySelector('body').dataset.theme
+        }
+      
+      }, []);
+
 
     const handleTitle = e => {
         setTitle(e.target.value);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { API_HOST } from "../../common";
 import { useRouter } from "next/router";
 import { marked } from "marked";
@@ -7,6 +7,17 @@ import styled from "@emotion/styled";
 const ProfileEditPage = ({profileData}) => {
     const [content, setContent] = useState(profileData[0].content);
     const router = useRouter();
+
+    useEffect(() => {
+        if (window.localStorage.getItem('theme') == "\"light\"") {
+            console.log('light 모드로 진입');
+            document.querySelector('body').dataset.theme = 'light'
+        } else {
+            console.log('dark 모드로 진입');  
+            delete document.querySelector('body').dataset.theme
+        }
+      
+      }, []);
 
 
     const handleContent = e => {

@@ -1,32 +1,49 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
+
   const [logo, setLogo] = useState('gxdxt.png');
   const [theme, setTheme] = useState('🌚')
   const changeColor = e => {
-    if (document.querySelector('body').dataset.theme == 'light') {
+    if (document.querySelector('body').dataset.theme === 'light') {
         delete document.querySelector('body').dataset.theme
         setLogo('gxdxt.png');
         setTheme('🌚');
-        window.localStorage.setItem('theme', 'dark');
+        window.localStorage.setItem('theme', JSON.stringify('dark'));
     } else {
         document.querySelector('body').dataset.theme = 'light' 
         setLogo('gxdxt_light.png');
         setTheme('🌝');
-        window.localStorage.setItem('theme', 'light');
+        window.localStorage.setItem('theme', JSON.stringify('light'));
     }
-}
+  }
+  useEffect(() => {
+    if (window.localStorage.getItem('theme') == "\"light\"") {
+        console.log('light 모드로 진입');
+        document.querySelector('body').dataset.theme = 'light'
+        setLogo('gxdxt_light.png');
+        setTheme('🌝');
+    } else {
+        console.log('dark 모드로 진입');  
+        delete document.querySelector('body').dataset.theme
+        setLogo('gxdxt.png');
+        setTheme('🌚');
+    }
+
+  }, []);
+
   
   const Header = () => {
+    
     return (
         <div className = "header">
             <div className = "header-logo-div">
                 <img className = "header-logo" src={logo} onClick = {() => {
                   window.location.href = "/"
                 }}></img>
-                <a className="theme-btn" onClick={changeColor}>{theme}</a>          
+                <a className="theme-btn" onClick={changeColor}>{theme}</a>
             </div>          
         </div>
     )

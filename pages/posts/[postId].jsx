@@ -2,22 +2,38 @@
 import { useRouter } from "next/router"
 import { API_HOST } from "../../common";
 import { marked } from "marked";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const PostDetailPage = ({postData}) => {
     const [logo, setLogo] = useState('gxdxt.png');
     const [theme, setTheme] = useState('🌚')
     const changeColor = e => {
-      if (document.querySelector('body').dataset.theme == 'light') {
-          delete document.querySelector('body').dataset.theme
-          setLogo('gxdxt.png');
-          setTheme('🌚')
-      } else {
-          document.querySelector('body').dataset.theme = 'light' 
-          setLogo('gxdxt_light.png');
-          setTheme('🌝')
-      }
-  } 
+        if (document.querySelector('body').dataset.theme === 'light') {
+            delete document.querySelector('body').dataset.theme
+            setLogo('gxdxt.png');
+            setTheme('🌚');
+            window.localStorage.setItem('theme', JSON.stringify('dark'));
+        } else {
+            document.querySelector('body').dataset.theme = 'light' 
+            setLogo('gxdxt_light.png');
+            setTheme('🌝');
+            window.localStorage.setItem('theme', JSON.stringify('light'));
+        }
+    }
+      useEffect(() => {
+        if (window.localStorage.getItem('theme') == "\"light\"") {
+            console.log('light 모드로 진입');
+            document.querySelector('body').dataset.theme = 'light'
+            setLogo('gxdxt_light.png');
+            setTheme('🌝');
+        } else {
+            console.log('dark 모드로 진입');  
+            delete document.querySelector('body').dataset.theme
+            setLogo('gxdxt.png');
+            setTheme('🌚');
+        }
+      
+      }, []);
     const Header = () => {
         return (
             <div className = "header">

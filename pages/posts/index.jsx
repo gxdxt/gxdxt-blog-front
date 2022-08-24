@@ -1,5 +1,5 @@
 import { API_HOST } from "../../common"
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import Link from "next/link"
 
 
@@ -7,16 +7,32 @@ const PostListPage = ({ postListData }) => {
     const [logo, setLogo] = useState('gxdxt.png');
     const [theme, setTheme] = useState('🌚')
     const changeColor = e => {
-      if (document.querySelector('body').dataset.theme == 'light') {
-          delete document.querySelector('body').dataset.theme
-          setLogo('gxdxt.png');
-          setTheme('🌚')
-      } else {
-          document.querySelector('body').dataset.theme = 'light' 
-          setLogo('gxdxt_light.png');
-          setTheme('🌝')
-      }
-  }
+        if (document.querySelector('body').dataset.theme === 'light') {
+            delete document.querySelector('body').dataset.theme
+            setLogo('gxdxt.png');
+            setTheme('🌚');
+            window.localStorage.setItem('theme', JSON.stringify('dark'));
+        } else {
+            document.querySelector('body').dataset.theme = 'light' 
+            setLogo('gxdxt_light.png');
+            setTheme('🌝');
+            window.localStorage.setItem('theme', JSON.stringify('light'));
+        }
+    }
+      useEffect(() => {
+        if (window.localStorage.getItem('theme') == "\"light\"") {
+            console.log('light 모드로 진입');
+            document.querySelector('body').dataset.theme = 'light'
+            setLogo('gxdxt_light.png');
+            setTheme('🌝');
+        } else {
+            console.log('dark 모드로 진입');  
+            delete document.querySelector('body').dataset.theme
+            setLogo('gxdxt.png');
+            setTheme('🌚');
+        }
+      
+      }, []);
     const [tagList, setTagList] = useState([]);
     const [tagCntList, setTagCntList] = useState({});
     const [content, setContent] = useState(postListData)
@@ -28,21 +44,17 @@ const PostListPage = ({ postListData }) => {
                 tagList.push(tag)
             ))
         ))
-        console.log(tagList);
         tagCntList['All'] = postListData.length
         tagList.map((tag) => (
             !tagCntList[tag]
             ? tagCntList[tag] = 1
             : tagCntList[tag] += 1
         ))
-        console.log(tagCntList)
     }, [])
 
     const searchTag = async param =>  {
-        console.log(param);
         const res = await fetch(`${API_HOST}/posts?tag=`+param);
         const tagListData = await res.json();
-        console.log('searchTag', tagListData);
         if (tagListData.length === 1){}
         else{
         (tagListData.sort( (a, b) => {
