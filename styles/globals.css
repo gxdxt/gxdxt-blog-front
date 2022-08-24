@@ -1,16 +1,15 @@
-html,
+
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: var(--main-black);
-  color: var(--main-white);
   --main-color: #99d6d1;
   --main-color2: #f37021;
   --main-black: #272626;
   --main-white: rgb(241, 241, 241);
-  --main-log: 'gxdxt.png' 
+  background-color: var(--main-black);
+  color: var(--main-white);
 }
 
 body[data-theme='light'] {
@@ -18,12 +17,12 @@ body[data-theme='light'] {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: var(--main-black);
-  color: var(--main-white);
   --main-color: #f37021;
   --main-color2: #99d6d1;
   --main-black: rgb(241, 241, 241);
   --main-white: #272626;
+  /* background-color: var(--main-black);
+  color: var(--main-white); */
 }
 
 button {
