@@ -4,6 +4,19 @@ import { marked } from "marked";
 
 
 const ProfilePage = ({ profileData }) => {
+    const [logo, setLogo] = useState('gxdxt.png');
+    const [theme, setTheme] = useState('🌚')
+    const changeColor = e => {
+      if (document.querySelector('body').dataset.theme == 'light') {
+          delete document.querySelector('body').dataset.theme
+          setLogo('gxdxt.png');
+          setTheme('🌚')
+      } else {
+          document.querySelector('body').dataset.theme = 'light' 
+          setLogo('gxdxt_light.png');
+          setTheme('🌝')
+      }
+  }
     console.log(profileData);
     const profileContent = profileData[0].content;
 
@@ -12,10 +25,11 @@ const ProfilePage = ({ profileData }) => {
         return (
             <div className = "header">
                 <div className = "header-logo-div">
-                <img className = "header-logo" src="gxdxt.png" onClick = {() => {
+                <img className = "header-logo" src={logo} onClick = {() => {
                   window.location.href = "/"
                 }}></img>
-                </div>          
+                 <a className="theme-btn" onClick={changeColor}>{theme}</a> 
+                </div>
             </div>
         )
     }

@@ -4,6 +4,19 @@ import Link from "next/link"
 
 
 const PostListPage = ({ postListData }) => {
+    const [logo, setLogo] = useState('gxdxt.png');
+    const [theme, setTheme] = useState('🌚')
+    const changeColor = e => {
+      if (document.querySelector('body').dataset.theme == 'light') {
+          delete document.querySelector('body').dataset.theme
+          setLogo('gxdxt.png');
+          setTheme('🌚')
+      } else {
+          document.querySelector('body').dataset.theme = 'light' 
+          setLogo('gxdxt_light.png');
+          setTheme('🌝')
+      }
+  }
     const [tagList, setTagList] = useState([]);
     const [tagCntList, setTagCntList] = useState({});
     const [content, setContent] = useState(postListData)
@@ -41,9 +54,10 @@ const PostListPage = ({ postListData }) => {
         return (
             <div className = "header">
                 <div className = "header-logo-div">
-                <img className = "header-logo" src="gxdxt.png" onClick = {() => {
+                <img className = "header-logo" src={logo} onClick = {() => {
                   window.location.href = "/"
                 }}></img>
+                <a className="theme-btn" onClick={changeColor}>{theme}</a> 
                 </div>          
             </div>
         )

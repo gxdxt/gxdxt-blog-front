@@ -1,14 +1,30 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { useState } from 'react'
 
 export default function Home() {
+  const [logo, setLogo] = useState('gxdxt.png');
+  const [theme, setTheme] = useState('🌚')
+  const changeColor = e => {
+    if (document.querySelector('body').dataset.theme == 'light') {
+        delete document.querySelector('body').dataset.theme
+        setLogo('gxdxt.png');
+        setTheme('🌚')
+    } else {
+        document.querySelector('body').dataset.theme = 'light' 
+        setLogo('gxdxt_light.png');
+        setTheme('🌝')
+    }
+}
+  
   const Header = () => {
     return (
         <div className = "header">
             <div className = "header-logo-div">
-                <img className = "header-logo" src="gxdxt.png" onClick = {() => {
+                <img className = "header-logo" src={logo} onClick = {() => {
                   window.location.href = "/"
                 }}></img>
+                <a className="theme-btn" onClick={changeColor}>{theme}</a>          
             </div>          
         </div>
     )
