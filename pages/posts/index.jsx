@@ -21,7 +21,6 @@ const PostListPage = ({ postListData }) => {
     const [tagCntList, setTagCntList] = useState({});
     const [content, setContent] = useState(postListData)
    
-    console.log(application.localStorage);
 
     const getAllTags = useMemo(() => {
         postListData.map((post) => (
