@@ -50,7 +50,7 @@ const PostAddPage = () => {
     }
 
     const storeTagByEnter = e => {
-        if (!tags.includes(tag)) {
+        if (!tags.includes(tag) && tag != '\n') {
             setTags(prev => (
                 [...prev, tag]
             ))
@@ -150,7 +150,9 @@ const PostAddPage = () => {
                     </div>
                     </div>
                     <div className="post-display-div">
+                        <br></br>
                         <div className="post-display-div-title" dangerouslySetInnerHTML={{__html: marked.parse('# '+title)}} />
+                        <br></br>
                         <div className="post-display-div-content" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
                     </div>
                 </Container>
@@ -174,7 +176,6 @@ export default PostAddPage;
 
 const Container = styled.div`
     display: grid;
-    margin: 10px;
     grid-template-columns: 50% 50%;
     height: 100vh
 `

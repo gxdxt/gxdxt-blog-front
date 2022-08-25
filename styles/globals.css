@@ -1,4 +1,7 @@
-
+* {
+  padding: 0;
+  margin: 0;
+}
 body {
   padding: 0;
   margin: 0;
@@ -8,6 +11,7 @@ body {
   --main-color2: #f37021;
   --main-black: #272626;
   --main-white: rgb(241, 241, 241);
+  --main-display: #0c0c0c; 
   background-color: var(--main-black);
   color: var(--main-white);
 }
@@ -21,6 +25,7 @@ body[data-theme='light'] {
   --main-color2: #99d6d1;
   --main-black: rgb(241, 241, 241);
   --main-white: #272626;
+  --main-display: #FBFDFC;
   /* background-color: var(--main-black);
   color: var(--main-white); */
 }
@@ -54,17 +59,19 @@ a:hover {
 
 
 .addContent {
-  margin: 10px;
 }
 
 #title {
   border: none;
   font-size: 50px;
+  margin-left: 10px;
 }
 
 #content {
   border: none;
   font-size: 30px;
+  margin-left: 10px;
+  margin-top: 30px;
 }
 
 .theme-btn {

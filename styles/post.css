@@ -278,6 +278,7 @@
 
 .post-div-tag {
     height: 30px;
+    margin-left: 10px;
 }
 
 #tag {
@@ -285,8 +286,9 @@
     color: var(--main-white);
     border: none;
     resize: none;
-    height: 20px;
+    height: 17px;
     overflow: hidden;
+    font-size: 15px;
 }
 
 #tag:focus {
@@ -294,13 +296,12 @@
 }
 
 .post-div-tag {
-    height: 30px;    
+    height: 20px;    
     display: flex;
 }
 
 .post-span-tag {
-    height: 20px;
-
+    text-align: center;
 }
 
 #content {
@@ -315,7 +316,7 @@
 }
 
 .post-display-div {
-    background-color: var(--main-black);
+    background-color: var(--main-display);
 }
 
 .post-display-div-title {

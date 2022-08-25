@@ -80,9 +80,10 @@ export const getServerSideProps = async (context) => {
 
 const Container = styled.div`
     display: grid;
-    margin: 10px;
     grid-template-columns: 50% 50%;
-    height: 100vh
+    height: 100vh;
+    width: 100%;
 `
+
 
 export default ProfileEditPage;

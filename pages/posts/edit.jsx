@@ -99,7 +99,6 @@ const PostEditPage = ({postData}) => {
                                 : (
                                 <TagDisplay></TagDisplay>  
                                 )}
-                        </span>
                         <textarea placeholder="tag" type = "text" id = "tag" value = {tag} onChange={handleTag} onKeyUp={ (e) => {
                             console.log('onkeypress', e.key);
                             if (e.key == 'Enter' || e.key == ',') {
@@ -108,13 +107,17 @@ const PostEditPage = ({postData}) => {
                         }} onFocus={()=>{
                             console.log('focus!');
                         }} autoComplete="off"></textarea>
+                        </span>
+                        
                     </div>
                     <div className = "post-publish-content">
                         <textarea placeholder="Write a story" id = "content" onChange={handleContent} defaultValue={content} />
                     </div>
                     </div>
                     <div className="post-display-div">
+                        <br></br>
                         <div className="post-display-div-title" dangerouslySetInnerHTML={{__html: marked.parse('# '+title)}} />
+                        <br></br>
                         <div className="post-display-div-content" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
                     </div>
                 </Container>
@@ -148,9 +151,9 @@ export const getServerSideProps = async (context) => {
 
 const Container = styled.div`
     display: grid;
-    margin: 10px;
     grid-template-columns: 50% 50%;
-    height: 100vh
+    height: 100vh;
+    width: 100%;
 `
 
 export default PostEditPage;
