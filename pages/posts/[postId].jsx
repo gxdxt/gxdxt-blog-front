@@ -201,12 +201,12 @@ const PostDetailPage = ({postData}) => {
                 handleDelete
             }>delete</a>
         </div>
-        <div className = "SectionDiv">
+        <div className = "section-div">
             <section className = "post-section" dangerouslySetInnerHTML={{__html: marked.parse(content)}} />
         </div>
         </article>
         
-        <div className = "ReplyDiv">
+        <div className = "reply-div">
 
             <span>{reply.length}개의 댓글</span>
             <div ><br/></div>

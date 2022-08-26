@@ -83,13 +83,26 @@
     border-radius: 4px;
     padding: 20px;
     margin: auto;
-    width: 80%;
+    width: 768px;
     height: 100vh;
     font-size: 25px;
     text-align: left;
     color: var(--main-white);
     /* border: 2px solid var(--main-color2); */
-    background-color: var(--main-black)
+    background-color: var(--main-black);
+}
+
+@media (max-width: 1024px) {
+    .post-section, .reply-div {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .post-section, .reply-div {
+        width: 100%
+    }
 }
 
 .post-back-div {
@@ -341,10 +354,10 @@
     padding-left: 10px;
 }
 
-.ReplyDiv {
+.reply-div {
     padding: 20px;
     margin: auto;
-    width: 80%;
+    width: 768px;
 
 }
 
@@ -394,6 +407,8 @@
     border: none;
     background-color: var(--main-black);
     height: 60px;
+    padding: 15px;
+    background-color: var(--main-display);
 }
 
 .reply-ul {
