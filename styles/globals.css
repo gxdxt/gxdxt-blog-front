@@ -74,6 +74,10 @@ a:hover {
   margin-top: 30px;
 }
 
+.theme-btn-div {
+  margin: 20px;
+}
+
 .theme-btn {
   cursor: pointer;
 }

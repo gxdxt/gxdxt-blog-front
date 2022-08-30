@@ -1,38 +1,60 @@
 import { API_HOST } from "../../common"
-import { useState, useMemo, useEffect } from "react"
+import { React, useState, useMemo, useEffect } from "react"
 import Link from "next/link"
 
 
 const PostListPage = ({ postListData }) => {
     const [logo, setLogo] = useState('gxdxt.png');
-    const [theme, setTheme] = useState('🌚')
+    const [theme, setTheme] = useState('https://cdn-icons-png.flaticon.com/512/6559/6559240.png')
     const changeColor = e => {
-        if (document.querySelector('body').dataset.theme === 'light') {
-            delete document.querySelector('body').dataset.theme
-            setLogo('gxdxt.png');
-            setTheme('🌚');
-            window.localStorage.setItem('theme', JSON.stringify('dark'));
-        } else {
-            document.querySelector('body').dataset.theme = 'light' 
-            setLogo('gxdxt_light.png');
-            setTheme('🌝');
-            window.localStorage.setItem('theme', JSON.stringify('light'));
-        }
+      if (document.querySelector('body').dataset.theme === 'light') {
+          delete document.querySelector('body').dataset.theme
+          setLogo('gxdxt.png');
+          setTheme('https://cdn-icons-png.flaticon.com/512/6559/6559240.png');
+          window.localStorage.setItem('theme', JSON.stringify('dark'));
+      } else {
+          document.querySelector('body').dataset.theme = 'light' 
+          setLogo('gxdxt_light.png');
+          setTheme('https://cdn-icons-png.flaticon.com/512/7649/7649635.png');
+          window.localStorage.setItem('theme', JSON.stringify('light'));
+      }
     }
-      useEffect(() => {
-        if (window.localStorage.getItem('theme') == "\"light\"") {
-            console.log('light 모드로 진입');
-            document.querySelector('body').dataset.theme = 'light'
-            setLogo('gxdxt_light.png');
-            setTheme('🌝');
-        } else {
-            console.log('dark 모드로 진입');  
-            delete document.querySelector('body').dataset.theme
-            setLogo('gxdxt.png');
-            setTheme('🌚');
-        }
+    useEffect(() => {
+      if (window.localStorage.getItem('theme') == "\"light\"") {
+          console.log('light 모드로 진입');
+          document.querySelector('body').dataset.theme = 'light'
+          setLogo('gxdxt_light.png');
+          setTheme('https://cdn-icons-png.flaticon.com/512/7649/7649635.png');
+      } else {
+          console.log('dark 모드로 진입');  
+          delete document.querySelector('body').dataset.theme
+          setLogo('gxdxt.png');
+          setTheme('https://cdn-icons-png.flaticon.com/512/6559/6559240.png');
+      }
+  
+    }, []);
+  
+    
+    const Header = () => {
       
-      }, []);
+      return (
+          <div className = "header">
+              <div className = "header-logo-div">
+                  <img className = "header-logo" src={logo} onClick = {() => {
+                    window.location.href = "/"
+                  }}></img>
+              </div>
+              <div className='post-div'>
+                    <button className='post-btn' onClick = {() => {
+                    window.location.href = "/posts/add"
+                    }}>post</button>         
+            </div>
+              <div className="theme-btn-div">
+                <a className="theme-btn" onClick={changeColor}><img src={theme} className="theme-btn-icon"></img></a>
+              </div>
+          </div>
+      )
+    }
     const [tagList, setTagList] = useState([]);
     const [tagCntList, setTagCntList] = useState({});
     const [content, setContent] = useState(postListData)
@@ -63,28 +85,12 @@ const PostListPage = ({ postListData }) => {
         }))}
         setContent(tagListData);
     }
-    const Header = () => {
-        return (
-            <div className = "header">
-                <div className = "header-logo-div">
-                <img className = "header-logo" src={logo} onClick = {() => {
-                  window.location.href = "/"
-                }}></img>
-                <a className="theme-btn" onClick={changeColor}>{theme}</a> 
-                </div>          
-            </div>
-        )
-    }
-    return  (
+   return  (
         <main>
             <title>방명록</title>
             <Header></Header>
             <div className='post-title'>
-                <div className='post-div'>
-                    <button className='post-btn' onClick = {() => {
-                    window.location.href = "/posts/add"
-                    }}>post</button>         
-                </div>
+
                 <div>
                     {
                     tagList.length === 0
@@ -95,7 +101,7 @@ const PostListPage = ({ postListData }) => {
                                 {
                                 Object.entries(tagCntList).map(
                                     (tag, idx) => (
-                                        <li key={idx} className="tagAll-li">
+                                        <li key={idx} className={"tagAll-li "}>
                                             <span onClick={
                                             () => searchTag(tag[0])
                                         }>{tag[0]}</span> <span className="tag-cnt">{tag[1]}</span>

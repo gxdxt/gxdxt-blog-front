@@ -1,8 +1,6 @@
 
 .post-div {
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
   }
   
 .post-timestamp {
@@ -460,7 +458,7 @@
     margin: auto;
     display: flex;
     list-style-type: none;
-    
+    margin:20px; 
 }
 
 .tag-li {
@@ -474,6 +472,7 @@
    font-size: 15px;
 }
 
+
 .tagAll-li {
     list-style-type: none;
     display: inline-block;
@@ -486,6 +485,14 @@
     font-size: 15px;
     cursor: pointer;
 }
+
+.tagAll-li .active {
+    background-color: var(--main-color2);
+    color: var(--main-white);
+}
+
+
+
 
 .tag-cnt {
     opacity: .5;
