@@ -4,55 +4,47 @@ import { API_HOST } from "../../common";
 import { marked } from "marked";
 import { useState, useEffect } from "react";
 
-const PostDetailPage = ({postData}) => {
+const LearnDetailPage = ({learnData}) => {
     const [logo, setLogo] = useState('gxdxt.png');
-    const [theme, setTheme] = useState('https://cdn-icons-png.flaticon.com/512/6559/6559240.png');
+    const [theme, setTheme] = useState('🌚')
     const changeColor = e => {
         if (document.querySelector('body').dataset.theme === 'light') {
             delete document.querySelector('body').dataset.theme
             setLogo('gxdxt.png');
-            setTheme('https://cdn-icons-png.flaticon.com/512/6559/6559240.png');
+            setTheme('🌚');
             window.localStorage.setItem('theme', JSON.stringify('dark'));
         } else {
             document.querySelector('body').dataset.theme = 'light' 
             setLogo('gxdxt_light.png');
-            setTheme('https://cdn-icons-png.flaticon.com/512/7649/7649635.png');
+            setTheme('🌝');
             window.localStorage.setItem('theme', JSON.stringify('light'));
         }
-      }
-    useEffect(() => {
+    }
+      useEffect(() => {
         if (window.localStorage.getItem('theme') == "\"light\"") {
             console.log('light 모드로 진입');
             document.querySelector('body').dataset.theme = 'light'
             setLogo('gxdxt_light.png');
-            setTheme('https://cdn-icons-png.flaticon.com/512/7649/7649635.png');
+            setTheme('🌝');
         } else {
             console.log('dark 모드로 진입');  
             delete document.querySelector('body').dataset.theme
             setLogo('gxdxt.png');
-            setTheme('https://cdn-icons-png.flaticon.com/512/6559/6559240.png');
+            setTheme('🌚');
         }
-    
+      
       }, []);
     const Header = () => {
-      
-      return (
-          <div className = "header">
-              <div className = "header-logo-div">
-                  <img className = "header-logo" src={`../${logo}`} onClick = {() => {
-                    window.location.href = "/"
-                  }}></img>
-              </div>
-              <div className='post-div'>
-                    <button className='post-btn' onClick = {() => {
-                    window.location.href = "/posts/add"
-                    }}>post</button>         
+        return (
+            <div className = "header">
+                <div className = "header-logo-div">
+                    <img className = "header-logo" src={`../${logo}`} onClick = {() => {
+                      window.location.href = "/"
+                    }}></img>
+                    <a className="theme-btn" onClick={changeColor}>{theme}</a> 
+                </div>          
             </div>
-              <div className="theme-btn-div">
-                <a className="theme-btn" onClick={changeColor}><img src={theme} className="theme-btn-icon"></img></a>
-              </div>
-          </div>
-      )
+        )
     }
 
     const Footer = () => {
@@ -65,12 +57,12 @@ const PostDetailPage = ({postData}) => {
         )
     }
     
-    const {id, title, content, reply, tags} = postData;
+    const {id, title, content, reply, tags} = learnData;
     const router = useRouter();
     const handleDelete = async e => {
         if (confirm('do you really want to delete this post?')) {
             e.preventDefault();
-            const result = await fetch(`${API_HOST}/posts?postId=`+id, {
+            const result = await fetch(`${API_HOST}/learn?learnId=`+id, {
                 method: 'DELETE',
             })
             alert('This Post is deleted!');
@@ -200,10 +192,10 @@ const PostDetailPage = ({postData}) => {
         </div>
         <div className="post-tool">
             <a onClick = {() => {
-                window.location.href = "/posts"
+                window.location.href = "/learn"
             }}>back</a>
             <a onClick = {() => {
-                window.location.href = "/posts/edit?postId="+id
+                window.location.href = "/learn/edit?learnId="+id
             }}>edit</a>
             <a onClick = {
                 handleDelete
@@ -242,15 +234,16 @@ const PostDetailPage = ({postData}) => {
 
 // getSSR
 export const getServerSideProps = async (context) => {
-    const {postId} = context.query; 
-    const response = await fetch(`${API_HOST}/posts?postId=${postId}`)
-    const postData = await response.json();
-    postData.reply = postData.reply.reverse() 
+    const {learnId} = context.query; 
+    const response = await fetch(`${API_HOST}/learn?learnId=${learnId}`)
+    const learnData = await response.json();
+    console.log(learnData);
+    learnData.reply = learnData.reply.reverse(); 
     return {
         props: {
-            postData,
+            learnData,
         }
     }
 }
 
-export default PostDetailPage
+export default LearnDetailPage

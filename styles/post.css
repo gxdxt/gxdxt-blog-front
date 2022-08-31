@@ -82,7 +82,7 @@
     padding: 20px;
     margin: auto;
     width: 768px;
-    height: 100vh;
+    /* height: 100vh; */
     font-size: 25px;
     text-align: left;
     color: var(--main-white);

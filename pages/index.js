@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { useState, useEffect } from 'react'
 
-export default function Home() {
+  export default function Home() {
 
   const [logo, setLogo] = useState('gxdxt.png');
   const [theme, setTheme] = useState('https://cdn-icons-png.flaticon.com/512/6559/6559240.png')
@@ -66,7 +66,7 @@ export default function Home() {
             <p>My Book Review</p>
           </a>
 
-          <a href="./posts" className={styles.card}>
+          <a href="./learn" className={styles.card}>
             <h3>Learn &rarr;</h3>
             <p>Archive for what I Learned !</p>
           </a>
