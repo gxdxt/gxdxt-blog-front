@@ -6,46 +6,54 @@ import { useState, useEffect } from "react";
 
 const LearnDetailPage = ({learnData}) => {
     const [logo, setLogo] = useState('gxdxt.png');
-    const [theme, setTheme] = useState('🌚')
+    const [theme, setTheme] = useState('https://cdn-icons-png.flaticon.com/512/6559/6559240.png')
     const changeColor = e => {
         if (document.querySelector('body').dataset.theme === 'light') {
             delete document.querySelector('body').dataset.theme
             setLogo('gxdxt.png');
-            setTheme('🌚');
+            setTheme('https://cdn-icons-png.flaticon.com/512/6559/6559240.png');
             window.localStorage.setItem('theme', JSON.stringify('dark'));
         } else {
             document.querySelector('body').dataset.theme = 'light' 
             setLogo('gxdxt_light.png');
-            setTheme('🌝');
+            setTheme('https://cdn-icons-png.flaticon.com/512/7649/7649635.png');
             window.localStorage.setItem('theme', JSON.stringify('light'));
         }
-    }
-      useEffect(() => {
+      }
+    useEffect(() => {
         if (window.localStorage.getItem('theme') == "\"light\"") {
             console.log('light 모드로 진입');
             document.querySelector('body').dataset.theme = 'light'
             setLogo('gxdxt_light.png');
-            setTheme('🌝');
+            setTheme('https://cdn-icons-png.flaticon.com/512/7649/7649635.png');
         } else {
             console.log('dark 모드로 진입');  
             delete document.querySelector('body').dataset.theme
             setLogo('gxdxt.png');
-            setTheme('🌚');
+            setTheme('https://cdn-icons-png.flaticon.com/512/6559/6559240.png');
         }
-      
+    
       }, []);
-    const Header = () => {
+      const Header = () => {
+      
         return (
             <div className = "header">
                 <div className = "header-logo-div">
                     <img className = "header-logo" src={`../${logo}`} onClick = {() => {
                       window.location.href = "/"
                     }}></img>
-                    <a className="theme-btn" onClick={changeColor}>{theme}</a> 
-                </div>          
+                </div>
+                <div className='post-div'>
+                      <button className='post-btn' onClick = {() => {
+                      window.location.href = "/learn/add"
+                      }}>post</button>         
+              </div>
+                <div className="theme-btn-div">
+                  <a className="theme-btn" onClick={changeColor}><img src={theme} className="theme-btn-icon"></img></a>
+                </div>
             </div>
         )
-    }
+      }
 
     const Footer = () => {
         return (
