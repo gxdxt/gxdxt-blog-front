@@ -53,7 +53,8 @@ const LearnEditPage = ({learnData}) => {
         alert('This Post is edited!');
         router.push('/learn/'+id);
     }
-    const storeTag = e => {
+    
+    const storeTagByComma = e => {
         const filterTag = tag.slice(0,tag.length-1)
         if (!tags.includes(filterTag)) {
             setTags(prev => (
@@ -62,6 +63,18 @@ const LearnEditPage = ({learnData}) => {
         };
         setTag('');
     }
+
+    const storeTagByEnter = e => {
+        tag = tag.trim();
+        if (!tags.includes(tag) && tag != '\n') {
+
+            setTags(prev => (
+                [...prev, tag]
+            ))
+        };
+        setTag('');
+    }
+
 
     const TagDisplay = () => {
         console.log('tags', tags);
@@ -91,24 +104,25 @@ const LearnEditPage = ({learnData}) => {
                     <div className="post-publish-title">
                         <input placeholder="title" type = "text" id = "title" value = {title} onChange={handleTitle}/>
                     </div>
-                    <div>
-                        <span className="post-div-tag">
+                    <div className="post-div-tag">
+                        <span className="post-span-tag">
                             {
                                 tags.length === 0
                                 ? (<div></div>)
                                 : (
                                 <TagDisplay></TagDisplay>  
                                 )}
+                        </span>
                         <textarea placeholder="tag" type = "text" id = "tag" value = {tag} onChange={handleTag} onKeyUp={ (e) => {
                             console.log('onkeypress', e.key);
-                            if (e.key == 'Enter' || e.key == ',') {
-                                storeTag()
+                            if (e.key == 'Enter') {
+                                storeTagByEnter()
+                            } else if (e.key == ',') {
+                                storeTagByComma()
                             }
                         }} onFocus={()=>{
                             console.log('focus!');
                         }} autoComplete="off"></textarea>
-                        </span>
-                        
                     </div>
                     <div className = "post-publish-content">
                         <textarea placeholder="Write a story" id = "content" onChange={handleContent} defaultValue={content} />
