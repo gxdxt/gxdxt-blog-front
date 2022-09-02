@@ -50,7 +50,9 @@ const LearnAddPage = () => {
     }
 
     const storeTagByEnter = e => {
+        tag = tag.trim();
         if (!tags.includes(tag) && tag != '\n') {
+
             setTags(prev => (
                 [...prev, tag]
             ))
