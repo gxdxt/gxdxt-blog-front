@@ -75,7 +75,7 @@ const LearnListPage = ({ learnListData }) => {
     }, [])
 
     const searchTag = async param =>  {
-        const res = await fetch(`${API_HOST}/learning?tag=`+param);
+        const res = await fetch(`${API_HOST}/learn?tag=`+param);
         const tagListData = await res.json();
         if (tagListData.length === 1){}
         else{
