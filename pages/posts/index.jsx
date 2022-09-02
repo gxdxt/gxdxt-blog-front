@@ -5,7 +5,8 @@ import Link from "next/link"
 
 const PostListPage = ({ postListData }) => {
     const [logo, setLogo] = useState('gxdxt.png');
-    const [theme, setTheme] = useState('https://cdn-icons-png.flaticon.com/512/6559/6559240.png')
+    const [theme, setTheme] = useState('https://cdn-icons-png.flaticon.com/512/6559/6559240.png');
+    const [currentTag, setCurrentTag] = useState('');
     const changeColor = e => {
       if (document.querySelector('body').dataset.theme === 'light') {
           delete document.querySelector('body').dataset.theme
@@ -20,6 +21,8 @@ const PostListPage = ({ postListData }) => {
       }
     }
     useEffect(() => {
+        window.localStorage.setItem('selectedTag', JSON.stringify('All'));
+        setCurrentTag('All');
       if (window.localStorage.getItem('theme') == "\"light\"") {
           console.log('light 모드로 진입');
           document.querySelector('body').dataset.theme = 'light'
@@ -76,6 +79,8 @@ const PostListPage = ({ postListData }) => {
 
     const searchTag = async param =>  {
         const res = await fetch(`${API_HOST}/posts?tag=`+param);
+        window.localStorage.setItem('selectedTag', JSON.stringify(param));
+        setCurrentTag(param);
         const tagListData = await res.json();
         if (tagListData.length === 1){}
         else{
@@ -101,7 +106,7 @@ const PostListPage = ({ postListData }) => {
                                 {
                                 Object.entries(tagCntList).map(
                                     (tag, idx) => (
-                                        <li key={idx} className={"tagAll-li "}>
+                                        <li key={idx} className={`tagAll-li ${currentTag == tag[0] ? "current":""}`}>
                                             <span onClick={
                                             () => searchTag(tag[0])
                                         }>{tag[0]}</span> <span className="tag-cnt">{tag[1]}</span>
