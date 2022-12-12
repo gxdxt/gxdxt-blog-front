@@ -11,7 +11,8 @@ body {
   --main-color2: #f6f1eb;
   --main-black: #272626;
   --main-white: #fffcf7; 
-  --main-display: #0c0c0c; 
+  --main-display: #0c0c0c;
+  --main-anchor: #92908d;
   background-color: var(--main-black);
   color: var(--main-white);
 }
@@ -41,10 +42,9 @@ textarea {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
   box-shadow: inset 0 0 0 0 transparent;
-  color: var(--main-white);
+  color: var(--main-anchor);
   margin: 0 -.25rem;
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
