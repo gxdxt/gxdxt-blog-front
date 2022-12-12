@@ -1,6 +1,9 @@
 
 .profile {
-	opacity: 0.5
+    /* 가운데 정렬 */
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
 }
 
 .post-div {
