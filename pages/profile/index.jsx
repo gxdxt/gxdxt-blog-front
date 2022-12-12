@@ -1,4 +1,4 @@
-import { API_HOST } from "../../common"
+mport { API_HOST } from "../../common"
 import { useState, useEffect } from "react"
 import { marked } from "marked";
 
@@ -41,9 +41,7 @@ const ProfilePage = ({ profileData }) => {
       return (
           <div className = "header">
               <div className = "header-logo-div">
-                  <a className = "header-logo" onClick = {() => {
-                    window.location.href = "/"
-                  }}>gxdxt</a>
+                  <a className = "header-logo" href="/">gxdxt</a>
               <div className="theme-btn-div">
                 <a className="theme-btn" onClick={changeColor}><img src={theme} className="theme-btn-icon"></img></a>
               </div>
