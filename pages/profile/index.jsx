@@ -1,4 +1,4 @@
-mport { API_HOST } from "../../common"
+import { API_HOST } from "../../common"
 import { useState, useEffect } from "react"
 import { marked } from "marked";
 
